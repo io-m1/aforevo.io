@@ -5,10 +5,12 @@ import Image from 'next/image';
 
 interface GalleryItem {
   id: string;
+  type?: 'image' | 'video';
   src: string;
+  videoId?: string;
   category: string;
   caption: string;
-  size: string; // 'large' | 'wide' | 'tall' | 'small'
+  size: string;
 }
 
 interface GalleryProps {
@@ -18,7 +20,7 @@ interface GalleryProps {
 
 export default function GalleryMasonry({ items, categories }: GalleryProps) {
   const [filter, setFilter] = useState('All');
-  const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+  const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
 
   const filteredItems = filter === 'All' 
     ? items 
@@ -26,7 +28,7 @@ export default function GalleryMasonry({ items, categories }: GalleryProps) {
 
   return (
     <section className="py-10">
-      {/* 1. Filter Tabs */}
+      {/* Filter Tabs */}
       <div className="flex flex-wrap gap-4 justify-center mb-12">
         {categories.map(cat => (
           <button
@@ -43,13 +45,13 @@ export default function GalleryMasonry({ items, categories }: GalleryProps) {
         ))}
       </div>
 
-      {/* 2. Masonry Grid */}
+      {/* Masonry Grid */}
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[200px]">
           {filteredItems.map((item) => (
             <div 
               key={item.id}
-              onClick={() => setSelectedImage(item)}
+              onClick={() => setSelectedItem(item)}
               className={`relative group cursor-pointer overflow-hidden rounded-xl bg-neutral-900 border border-neutral-800 ${
                 item.size === 'large' ? 'md:col-span-2 md:row-span-2' :
                 item.size === 'wide' ? 'md:col-span-2' :
@@ -64,7 +66,16 @@ export default function GalleryMasonry({ items, categories }: GalleryProps) {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
               
-              {/* Overlay */}
+              {/* Video Play Icon Overlay */}
+              {item.type === 'video' && (
+                <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                  <div className="w-16 h-16 rounded-full bg-mbi-red/90 flex items-center justify-center backdrop-blur-sm shadow-[0_0_30px_rgba(230,57,70,0.6)] group-hover:scale-110 transition-transform">
+                     <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                  </div>
+                </div>
+              )}
+
+              {/* Text Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                 <span className="text-mbi-red text-xs font-bold uppercase tracking-wider mb-1">
                   {item.category}
@@ -78,11 +89,11 @@ export default function GalleryMasonry({ items, categories }: GalleryProps) {
         </div>
       </div>
 
-      {/* 3. Lightbox Modal */}
-      {selectedImage && (
+      {/* Lightbox / Video Modal */}
+      {selectedItem && (
         <div 
           className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 animate-in fade-in duration-200"
-          onClick={() => setSelectedImage(null)}
+          onClick={() => setSelectedItem(null)}
         >
           <button className="absolute top-8 right-8 text-white/50 hover:text-white">
             <svg className="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -90,16 +101,28 @@ export default function GalleryMasonry({ items, categories }: GalleryProps) {
             </svg>
           </button>
           
-          <div className="max-w-5xl w-full max-h-[90vh] relative aspect-video">
-             <Image 
-               src={selectedImage.src} 
-               alt={selectedImage.caption}
-               fill
-               className="object-contain"
-             />
-             <div className="absolute bottom-[-50px] left-0 text-white">
-                <h2 className="text-2xl font-bold">{selectedImage.caption}</h2>
-             </div>
+          <div className="max-w-6xl w-full relative aspect-video bg-black rounded-lg overflow-hidden shadow-2xl border border-white/10" onClick={(e) => e.stopPropagation()}>
+             {selectedItem.type === 'video' && selectedItem.videoId ? (
+               <iframe 
+                 src={`https://www.youtube.com/embed/${selectedItem.videoId}?autoplay=1&rel=0`}
+                 title={selectedItem.caption}
+                 className="w-full h-full"
+                 allow="autoplay; encrypted-media"
+                 allowFullScreen
+               />
+             ) : (
+               <>
+                 <Image 
+                   src={selectedItem.src} 
+                   alt={selectedItem.caption}
+                   fill
+                   className="object-contain"
+                 />
+                 <div className="absolute bottom-4 left-4 text-white bg-black/50 px-4 py-2 rounded">
+                    <h2 className="text-xl font-bold">{selectedItem.caption}</h2>
+                 </div>
+               </>
+             )}
           </div>
         </div>
       )}
