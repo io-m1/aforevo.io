@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { HeroData } from '@/types/cms';
 
 interface HeroProps {
@@ -13,15 +14,16 @@ export default function Hero({ data }: HeroProps) {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/30 z-20" />
         <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black z-20" />
         
-        {/* Placeholder Video - Replaces static image */}
-        {/* In production, this would be a local <video> tag or a specialized video component */}
+        {/* Optimized Background Image */}
         <div className="w-full h-full relative">
-           <img 
+           <Image 
              src="https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=2938&auto=format&fit=crop"
              alt="Cinematic Background"
-             className="w-full h-full object-cover opacity-60 animate-pan"
+             fill
+             priority // Critical for LCP
+             className="object-cover opacity-60 animate-pan"
+             sizes="100vw"
            />
-           {/* 'animate-pan' would be a custom keyframe for slow movement if video fails */}
         </div>
       </div>
       

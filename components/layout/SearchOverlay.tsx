@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { searchContent } from '@/lib/search';
 import { SearchResult } from '@/types/search';
 
@@ -70,8 +71,13 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
             >
               <div className="w-16 h-16 rounded-lg bg-gray-800 flex-shrink-0 overflow-hidden relative">
                 {item.image ? (
-                  /* eslint-disable-next-line @next/next/no-img-element */
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                  <Image 
+                    src={item.image} 
+                    alt={item.title} 
+                    fill
+                    className="object-cover"
+                    sizes="64px"
+                  />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-gray-500">
                     <span className="text-xs font-bold uppercase">{item.category[0]}</span>
