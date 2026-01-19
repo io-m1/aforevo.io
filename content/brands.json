@@ -19,14 +19,14 @@
       "image": "/images/brands/aforevo-logo.png"
     },
     {
-      "id": "music",
-      "name": "MBI Music",
-      "tagline": "Amplifying African Sound",
-      "description": "The bridge between African artists and the global market. We handle digital distribution, playlist pitching, and royalty collection for independent artists and labels.",
-      "features": ["DSP Distribution", "Playlist Pitching", "Royalty Collection"],
-      "ctaLink": "/contact",
-      "ctaText": "Distribute With Us",
-      "image": "/images/brands/music-logo.png"
+      "id": "revo",
+      "name": "Revo+",
+      "tagline": "Premium African Lifestyle",
+      "description": "The ultimate 24/7 lifestyle and entertainment channel. Revo+ brings you the best in African fashion, music, celebrity lifestyle, and urban culture. Available on StarTimes (Channel 123) and FreeTV.",
+      "features": ["24/7 Linear Broadcast", "StarTimes & FreeTV", "Fashion & Urban Culture"],
+      "ctaLink": "https://www.youtube.com/@RevoPlus",
+      "ctaText": "Watch Highlights",
+      "image": "/images/brands/revo-logo.png"
     },
     {
       "id": "vybz-fm",
@@ -37,6 +37,16 @@
       "ctaLink": "https://vybzfm.com",
       "ctaText": "Listen Live",
       "image": "/images/brands/vybz-logo.png"
+    },
+    {
+      "id": "music",
+      "name": "MBI Music",
+      "tagline": "Amplifying African Sound",
+      "description": "The bridge between African artists and the global market. We handle digital distribution, playlist pitching, and royalty collection for independent artists and labels.",
+      "features": ["DSP Distribution", "Playlist Pitching", "Royalty Collection"],
+      "ctaLink": "/contact",
+      "ctaText": "Distribute With Us",
+      "image": "/images/brands/music-logo.png"
     },
     {
       "id": "tech",
