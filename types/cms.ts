@@ -14,9 +14,20 @@ export interface HeroData {
 export interface ServiceItem {
   id: string;
   title: string;
-  description: string; // SEO-rich description
+  description: string;
   icon?: string;
   link: string;
+}
+
+export interface BrandItem {
+  id: string;
+  name: string;
+  tagline: string;
+  description: string;
+  features: string[]; // List of key capabilities (e.g., "YouTube MCN", "Dubbing")
+  ctaLink: string;
+  ctaText: string;
+  image?: string; // Placeholder for brand logo/banner
 }
 
 export interface HomePageContent {
@@ -30,4 +41,16 @@ export interface HomePageContent {
     heading: string;
     items: ServiceItem[];
   };
+}
+
+export interface BrandsPageContent {
+  metadata: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    heading: string;
+    subheading: string;
+  };
+  brands: BrandItem[];
 }
