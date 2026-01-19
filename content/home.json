@@ -29,5 +29,28 @@
       { "name": "MBI Music", "handle": "@MBIMusic", "subs": "800K", "views": "200M" },
       { "name": "Yorubahood", "handle": "@Yorubahood", "subs": "2.1M", "views": "900M" }
     ]
+  },
+  "services": {
+    "heading": "OUR ECOSYSTEM",
+    "items": [
+      {
+        "id": "aforevo",
+        "title": "Aforevo",
+        "description": "The undisputed giant of Nollywood streaming. Curating, dubbing, and distributing thousands of hours of premium African movies to the diaspora.",
+        "link": "/brands/aforevo"
+      },
+      {
+        "id": "music",
+        "title": "MBI Music",
+        "description": "Amplifying the rhythm of the continent. From Afrobeatz radio to global DSP distribution, we monetize the sound of Africa.",
+        "link": "/brands/music"
+      },
+      {
+        "id": "tech",
+        "title": "MBI Tech",
+        "description": "Proprietary DRM and anti-piracy infrastructure protecting the intellectual property of African creators.",
+        "link": "/services/tech"
+      }
+    ]
   }
 }

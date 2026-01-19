@@ -3,6 +3,8 @@ export interface HeroData {
   subheading: string;
   ctaText: string;
   ctaLink: string;
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
   backgroundImage?: string;
 }
 
@@ -15,11 +17,20 @@ export interface ServiceItem {
 }
 
 export interface StatItem {
+  id?: string;
   label: string;
   value: string;
   suffix?: string;
 }
 
+export interface YouTubeChannel {
+  name: string;
+  handle: string;
+  subs: string;
+  views: string;
+}
+
+// The Strict Interface for Home Content
 export interface HomePageContent {
   metadata: {
     title: string;
@@ -27,13 +38,22 @@ export interface HomePageContent {
     keywords: string[];
   };
   hero: HeroData;
-  stats: StatItem[];
+  // This was the missing property causing the build failure
+  metrics: {
+    heading: string;
+    items: StatItem[];
+  };
+  youtube: {
+    heading: string;
+    channels: YouTubeChannel[];
+  };
   services: {
     heading: string;
     items: ServiceItem[];
   };
 }
 
+// Other Page Types...
 export interface BrandItem {
   id: string;
   name: string;
@@ -61,6 +81,7 @@ export interface AboutPageContent {
   metadata: {
     title: string;
     description: string;
+    keywords?: string[];
   };
   hero: {
     heading: string;
