@@ -1,40 +1,30 @@
 import type { Metadata } from "next";
-import { Inter, Bebas_Neue } from "next/font/google";
+import { Manrope } from "next/font/google"; // Switched to Manrope
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar"; 
+import Footer from "@/components/layout/Footer";
 
-const inter = Inter({
+// Initialize Manrope with Latin subset
+const manrope = Manrope({ 
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const bebas = Bebas_Neue({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-bebas",
-  display: "swap",
+  weight: ['400', '500', '600', '700', '800'],
+  variable: '--font-manrope',
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mbi247.com"),
+  metadataBase: new URL('https://www.mbi247.com'), 
   title: {
-    default: "Murphy Ben International | Africa's Largest Content Aggregator",
-    template: "%s | MBI247",
+    default: "Murphy Ben International | Global African Entertainment",
+    template: "%s | Murphy Ben International"
   },
-  description: "Africa's leading media powerhouse: Nollywood streaming, Afrobeatz radio, dubbing services, production, distribution, and talent management.",
-  keywords: ["Nollywood streaming", "Afrobeatz radio", "African content aggregator", "African dubbing services", "Murphy Ben International"],
+  description: "Africa's Leading Content Aggregator & Digital Distributor. Powering Nollywood and Afrobeatz globally.",
   openGraph: {
-    type: "website",
-    siteName: "Murphy Ben International",
-    title: "Murphy Ben International | Africa's Largest Content Aggregator",
-    description: "Promoting African storytelling through innovative media production and distribution.",
-    images: "/og-image.jpg",
+    type: 'website',
+    locale: 'en_NG',
+    siteName: 'Murphy Ben International',
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Murphy Ben International",
-    description: "Africa's largest content aggregator and media powerhouse.",
-    images: "/twitter-image.jpg",
+  icons: {
+    icon: "/favicon.ico",
   },
 };
 
@@ -44,9 +34,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${bebas.variable} dark`}>
-      <body className="antialiased bg-[#0A0A0A] text-white min-h-screen">
+    <html lang="en">
+      <body className={manrope.className}>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
