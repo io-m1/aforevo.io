@@ -24,7 +24,7 @@ export default function PulseNetwork({ data }: PulseNetworkProps) {
 
   const handleShare = (item: PulseItem) => {
     // Simulate sharing/copying logic
-    const text = \`\${item.category}: \${item.message} - via MBI Network\`;
+    const text = `${item.category}: ${item.message} - via MBI Network`;
     navigator.clipboard.writeText(text);
     setCopiedId(item.id);
     setTimeout(() => setCopiedId(null), 2000);
