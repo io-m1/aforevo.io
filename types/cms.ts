@@ -55,6 +55,30 @@ export interface AboutPageContent {
   };
 }
 
+export interface ContactPageContent {
+  metadata: {
+    title: string;
+    description: string;
+  };
+  heading: string;
+  subheading: string;
+  form: {
+    labels: {
+      name: string;
+      email: string;
+      subject: string;
+      message: string;
+      submit: string;
+    }
+  };
+  info: {
+    heading: string;
+    address: string[];
+    email: string;
+    phone: string;
+  };
+}
+
 export interface HomePageContent {
   metadata: {
     title: string;

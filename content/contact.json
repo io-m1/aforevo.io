@@ -1,0 +1,28 @@
+{
+  "metadata": {
+    "title": "Contact MBI | Partner with African Entertainment Leaders",
+    "description": "Get in touch with Murphy Ben International. Inquire about Nollywood distribution, music aggregation, or tech solutions."
+  },
+  "heading": "Let's Build Together",
+  "subheading": "Whether you are a creator looking for distribution or a platform seeking premium African content, we are ready to connect.",
+  "form": {
+    "labels": {
+      "name": "Full Name",
+      "email": "Business Email",
+      "subject": "Subject of Inquiry",
+      "message": "How can we help you?",
+      "submit": "Send Message"
+    }
+  },
+  "info": {
+    "heading": "Global Headquarters",
+    "address": [
+      "Murphy Ben International",
+      "2-4 Ladipo Kuku Street",
+      "Allen Avenue, Ikeja",
+      "Lagos, Nigeria"
+    ],
+    "email": "info@mbi247.com",
+    "phone": "+234 808 862 4247"
+  }
+}
