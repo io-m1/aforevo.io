@@ -1,62 +1,102 @@
 {
   "metadata": {
-    "title": "Our Brands | Aforevo, Vybz FM, Revo+",
-    "description": "Explore the MBI portfolio. Aforevo for video, Vybz FM for radio, and MBI Tech for digital rights management."
+    "title": "MBI Subsidiaries | The Network",
+    "description": "Explore the companies powering the MBI ecosystem: Aforevo, Vybz 94.5 FM, Revo+, and our specialized production divisions."
   },
   "hero": {
-    "heading": "THE MBI ECOSYSTEM",
-    "subheading": "A suite of platforms defining the future of African entertainment."
+    "heading": "THE MBI SUBSIDIARIES",
+    "subheading": "A conglomerate of specialized divisions driving African entertainment."
   },
   "brands": [
     {
       "id": "aforevo",
       "name": "Aforevo",
-      "tagline": "The Global Stage for African Cinema",
-      "description": "Aforevo is one of Africa's largest YouTube Multi-Channel Networks (MCN) and content aggregators. We specialize in the acquisition, localization (dubbing), and distribution of premium Nollywood movies to a global audience.",
-      "features": ["YouTube Certified MCN", "French & Swahili Dubbing", "Global Distribution"],
+      "tagline": "The Global Stage",
+      "description": "The flagship digital platform aggregating African movies and content. Home to the Aforevo YouTube network and Aforevo Facebook community.",
+      "features": ["Content Aggregation", "Digital Streaming", "Community Building"],
       "ctaLink": "https://www.youtube.com/@AforevoStage",
-      "ctaText": "Visit Channel",
+      "ctaText": "Aforevo YouTube",
       "image": "/images/brands/aforevo-logo.png"
     },
     {
-      "id": "revo",
-      "name": "Revo+",
-      "tagline": "Premium African Lifestyle",
-      "description": "The ultimate 24/7 lifestyle and entertainment channel. Revo+ brings you the best in African fashion, music, celebrity lifestyle, and urban culture. Available on StarTimes (Channel 123) and FreeTV.",
-      "features": ["24/7 Linear Broadcast", "StarTimes & FreeTV", "Fashion & Urban Culture"],
-      "ctaLink": "https://www.youtube.com/@RevoPlus",
-      "ctaText": "Watch Highlights",
-      "image": "/images/brands/revo-logo.png"
-    },
-    {
       "id": "vybz-fm",
-      "name": "Vybz FM",
+      "name": "Vybz 94.5 FM",
       "tagline": "The Rhythm of Lagos",
-      "description": "Lagos' premier digital radio station dedicated to Afrobeatz culture, news, and entertainment. Broadcasting live to the world.",
-      "features": ["Live Digital Radio", "Afrobeatz Curation", "Artist Interviews"],
+      "description": "More than just radio. Vybz 94.5 FM is the pulse of Afrobeatz culture, broadcasting live music, news, and entertainment to a global audience.",
+      "features": ["Live Broadcast", "94.5 FM Frequency", "Digital Radio"],
       "ctaLink": "https://vybzfm.com",
       "ctaText": "Listen Live",
       "image": "/images/brands/vybz-logo.png"
     },
     {
-      "id": "music",
-      "name": "MBI Music",
-      "tagline": "Amplifying African Sound",
-      "description": "The bridge between African artists and the global market. We handle digital distribution, playlist pitching, and royalty collection for independent artists and labels.",
-      "features": ["DSP Distribution", "Playlist Pitching", "Royalty Collection"],
-      "ctaLink": "/contact",
-      "ctaText": "Distribute With Us",
-      "image": "/images/brands/music-logo.png"
+      "id": "revo-plus",
+      "name": "Revo+",
+      "tagline": "Premium Lifestyle",
+      "description": "Our 24/7 linear TV channel dedicated to fashion, urban culture, and celebrity lifestyle. Available on StarTimes and FreeTV.",
+      "features": ["Linear TV", "Fashion & Lifestyle", "StarTimes Ch. 123"],
+      "ctaLink": "/brands/revo-plus",
+      "ctaText": "View Schedule",
+      "image": "/images/brands/revo-logo.png"
     },
     {
-      "id": "tech",
-      "name": "MBI Tech",
-      "tagline": "Digital Infrastructure",
-      "description": "Proprietary tools for piracy protection, content ID management, and automated royalty splitting.",
-      "features": ["DRM Protection", "Royalty Automation", "Analytics"],
-      "ctaLink": "/services/tech",
-      "ctaText": "Learn More",
-      "image": "/images/brands/tech-logo.png"
+      "id": "aforevo-mcn",
+      "name": "Aforevo MCN",
+      "tagline": "Creator Management",
+      "description": "Africa's largest YouTube Multi-Channel Network. We protect, monetize, and grow channels for hundreds of creators.",
+      "features": ["Monetization", "Rights Management", "Growth Strategy"],
+      "ctaLink": "/services/mcn",
+      "ctaText": "Join Network",
+      "image": "/images/brands/mcn-logo.png"
+    },
+    {
+      "id": "dubbing",
+      "name": "Aforevo Dubbing",
+      "tagline": "Breaking Language Barriers",
+      "description": "State-of-the-art localization studios translating Nollywood content into French, Swahili, and Spanish for broader reach.",
+      "features": ["Multi-Language Dubbing", "Subtitling", "Localization"],
+      "ctaLink": "/services/dubbing",
+      "ctaText": "Our Studios",
+      "image": "/images/brands/dubbing-logo.png"
+    },
+    {
+      "id": "production",
+      "name": "MBI Production",
+      "tagline": "Original Content",
+      "description": "The creative engine behind our original series, music videos, and feature films. From concept to 4K delivery.",
+      "features": ["Film Production", "Music Videos", "Post-Production"],
+      "ctaLink": "/contact",
+      "ctaText": "Hire Us",
+      "image": "/images/brands/production-logo.png"
+    },
+    {
+      "id": "events",
+      "name": "Aforevo Events",
+      "tagline": "Live Experiences",
+      "description": "Curating concerts, award shows, and fan festivals that bring the digital community into the physical world.",
+      "features": ["Concert Management", "Fan Festivals", "Corporate Events"],
+      "ctaLink": "/gallery",
+      "ctaText": "View Gallery",
+      "image": "/images/brands/events-logo.png"
+    },
+    {
+      "id": "distribution",
+      "name": "MBI Distribution",
+      "tagline": "Global Reach",
+      "description": "Strategic placement of content across DSPs, VOD platforms, and airlines. We get African stories to every screen.",
+      "features": ["DSP Delivery", "VOD Licensing", "Airline Rights"],
+      "ctaLink": "/services/distribution",
+      "ctaText": "Distribute Now",
+      "image": "/images/brands/distro-logo.png"
+    },
+    {
+      "id": "networks",
+      "name": "MBI Networks",
+      "tagline": "Infrastructure",
+      "description": "The backbone of our digital operations, handling ISP services and technical connectivity.",
+      "features": ["Connectivity", "Infrastructure", "Tech Support"],
+      "ctaLink": "/contact",
+      "ctaText": "Contact Tech",
+      "image": "/images/brands/network-logo.png"
     }
   ]
 }

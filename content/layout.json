@@ -1,54 +1,28 @@
 {
   "navbar": {
     "links": [
-      { "label": "Home", "href": "/" },
-      { "label": "About Us", "href": "/about" },
-      { "label": "Brands", "href": "/brands" },
-      { "label": "Services", "href": "/services" }
+      { "label": "About", "href": "/about" },
+      { "label": "Subsidiaries", "href": "/brands" },
+      { "label": "Services", "href": "/services" },
+      { "label": "Gallery", "href": "/gallery" }
     ],
-    "cta": { "label": "Contact MBI", "href": "/contact" }
+    "cta": {
+      "label": "Contact Us",
+      "href": "/contact"
+    }
   },
   "footer": {
-    "brandDescription": "Murphy Ben International is the leading digital architecture for African entertainment, bridging the gap between creativity and global distribution.",
-    "address": [
-      "2-4 Ladipo Kuku Street",
-      "Allen Avenue, Ikeja",
-      "Lagos, Nigeria"
-    ],
-    "contact": {
-      "phone": "+234 808 862 4247",
-      "email": "info@mbi247.com"
-    },
+    "description": "Murphy Ben International is Africa's leading digital media & entertainment conglomerate.",
     "socials": [
-      { "platform": "YouTube", "url": "https://www.youtube.com/@AforevoStage" },
-      { "platform": "LinkedIn", "url": "https://www.linkedin.com/company/murphy-ben-international" },
-      { "platform": "Facebook", "url": "https://www.facebook.com/aforevo" }
+      { "platform": "LinkedIn", "url": "https://www.linkedin.com/company/murphyben-international/" },
+      { "platform": "Instagram", "url": "https://www.instagram.com/mbigroup247_/" },
+      { "platform": "X (Twitter)", "url": "https://x.com/MBIgroup247" },
+      { "platform": "Facebook", "url": "https://www.facebook.com/profile.php?id=61564943465900" }
     ],
-    "columns": [
-      {
-        "heading": "Ecosystem",
-        "links": [
-          { "label": "Aforevo", "href": "/brands/aforevo" },
-          { "label": "Music Distribution", "href": "/brands/music" },
-          { "label": "MBI Tech", "href": "/services/tech" }
-        ]
-      },
-      {
-        "heading": "Company",
-        "links": [
-          { "label": "About Us", "href": "/about" },
-          { "label": "Careers", "href": "/careers" },
-          { "label": "Press & News", "href": "/news" }
-        ]
-      },
-      {
-        "heading": "Legal",
-        "links": [
-          { "label": "Privacy Policy", "href": "/legal/privacy" },
-          { "label": "Terms of Service", "href": "/legal/terms" }
-        ]
-      }
-    ],
-    "copyright": "© 2026 Murphy Ben International. All Rights Reserved."
+    "links": [
+      { "label": "Privacy Policy", "href": "/legal/privacy" },
+      { "label": "Terms & Conditions", "href": "/legal/terms" },
+      { "label": "Careers", "href": "/careers" }
+    ]
   }
 }
