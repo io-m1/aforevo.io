@@ -15,7 +15,6 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
   const [results, setResults] = useState<SearchResult[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Focus input when opened
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 100);
@@ -25,7 +24,6 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
     }
   }, [isOpen]);
 
-  // Handle Search
   useEffect(() => {
     const hits = searchContent(query);
     setResults(hits);
@@ -35,7 +33,6 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
 
   return (
     <div className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-xl animate-in fade-in duration-200">
-      {/* Header / Close */}
       <div className="container mx-auto px-4 h-20 flex items-center justify-end">
         <button 
           onClick={onClose}
@@ -49,7 +46,6 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
       </div>
 
       <div className="container mx-auto px-4 max-w-4xl">
-        {/* Search Input */}
         <div className="relative mb-12">
           <input
             ref={inputRef}
@@ -64,7 +60,6 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
           </svg>
         </div>
 
-        {/* Results Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[60vh] overflow-y-auto scrollbar-hide">
           {results.map((item) => (
             <Link 
@@ -73,9 +68,9 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
               onClick={onClose}
               className="group flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10"
             >
-              {/* Thumbnail / Icon */}
               <div className="w-16 h-16 rounded-lg bg-gray-800 flex-shrink-0 overflow-hidden relative">
                 {item.image ? (
+                  /* eslint-disable-next-line @next/next/no-img-element */
                   <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center text-gray-500">
@@ -84,7 +79,6 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
                 )}
               </div>
 
-              {/* Text */}
               <div>
                 <h4 className="text-lg font-bold text-white group-hover:text-mbi-red transition-colors">
                   {item.title}
@@ -108,7 +102,7 @@ export default function SearchOverlay({ isOpen, onClose }: SearchOverlayProps) {
 
           {query && results.length === 0 && (
              <div className="col-span-full text-center py-12 text-gray-500">
-               No results found for "{query}"
+               No results found for &quot;{query}&quot;
              </div>
           )}
         </div>
