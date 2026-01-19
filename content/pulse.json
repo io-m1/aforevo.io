@@ -1,0 +1,46 @@
+{
+  "heading": "THE LIVE NETWORK",
+  "subheading": "Real-time activity across the MBI Ecosystem.",
+  "items": [
+    {
+      "id": "p1",
+      "category": "STUDIOS",
+      "message": "Aforevo Studios wraps production on 'Lagos Heist' – starring Zubby Michael.",
+      "timestamp": "2 Hours Ago",
+      "location": "Lagos, NG",
+      "stats": "4K Production"
+    },
+    {
+      "id": "p2",
+      "category": "DISTRIBUTION",
+      "message": "MBI Network crossed 550 Million total views for January 2026.",
+      "timestamp": "4 Hours Ago",
+      "location": "Global",
+      "stats": "↑ 12% MoM"
+    },
+    {
+      "id": "p3",
+      "category": "VYBZ FM",
+      "message": "Burna Boy exclusive interview live now on Vybz FM Digital.",
+      "timestamp": "Live Now",
+      "location": "Nairobi, KE",
+      "stats": "150K Listeners"
+    },
+    {
+      "id": "p4",
+      "category": "TECH",
+      "message": "MBI Rights Manager blocked 14,000 piracy attempts this week.",
+      "timestamp": "Yesterday",
+      "location": "Cloud",
+      "stats": "99.9% Success"
+    },
+    {
+      "id": "p5",
+      "category": "CREATORS",
+      "message": "Welcome 5 new Ghanian creators to the Aforevo Partner Program.",
+      "timestamp": "2 Days Ago",
+      "location": "Accra, GH",
+      "stats": "Partner Tier"
+    }
+  ]
+}

@@ -4,6 +4,7 @@ import brandsData from '@/content/brands.json';
 import aboutData from '@/content/about.json';
 import contactData from '@/content/contact.json';
 import mediaData from '@/content/media.json';
+import pulseData from '@/content/pulse.json';
 
 export async function getHomePageContent(): Promise<HomePageContent> {
   return homeData as HomePageContent;
@@ -19,4 +20,7 @@ export async function getContactPageContent(): Promise<ContactPageContent> {
 }
 export async function getMediaContent() {
   return mediaData;
+}
+export async function getPulseContent() {
+  return pulseData;
 }
