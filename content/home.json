@@ -1,43 +1,33 @@
 {
   "metadata": {
-    "title": "Murphy Ben International | Africa's #1 Digital Content Aggregator",
-    "description": "The largest YouTube MCN in Africa. Powering Nollywood streaming, Afrobeatz radio, and digital monetization for 500M+ viewers. We are the bridge between African creativity and the global economy.",
-    "keywords": ["Nollywood streaming", "African content aggregator", "Afrobeatz radio", "YouTube MCN Africa", "Aforevo", "Digital Rights Management", "Murphy Ben International"]
+    "title": "Murphy Ben International | Africa's Leading Digital Media & Entertainment Company",
+    "description": "MBI is the digital powerhouse behind Aforevo, Vybz FM, and the continent's largest YouTube network. We monetize, distribute, and protect African content globally.",
+    "keywords": ["African entertainment media company", "Nollywood content distribution", "African YouTube network", "Digital media company Africa", "Murphy Ben International", "Aforevo", "Vybz FM", "Nollywood streaming"]
   },
   "hero": {
-    "heading": "WE ARE THE BRIDGE.",
-    "subheading": "Murphy Ben International (MBI) is the digital architecture for African entertainment. We dominate the ecosystem with 10M+ subscribers, 500M+ monthly views, and the world's largest Nollywood catalog.",
-    "ctaText": "EXPLORE OUR BRANDS",
+    "heading": "AFRICA'S DIGITAL MEDIA POWERHOUSE",
+    "subheading": "We are the engine behind the continent's most watched content. From Nollywood blockbusters to Afrobeatz radio, MBI connects African creativity to the global economy.",
+    "ctaText": "EXPLORE OUR NETWORK",
     "ctaLink": "/brands",
-    "backgroundImage": "/images/hero-cinematic-dark.jpg"
+    "secondaryCtaText": "PARTNER WITH US",
+    "secondaryCtaLink": "/contact"
   },
-  "stats": [
-    { "label": "YouTube Subscribers", "value": "10M+" },
-    { "label": "Monthly Views", "value": "500M+" },
-    { "label": "Content Library", "value": "20K+ Hrs" },
-    { "label": "Global Reach", "value": "150+ Countries" }
-  ],
-  "services": {
-    "heading": "OUR ECOSYSTEM",
+  "metrics": {
+    "heading": "DOMINANCE BY THE NUMBERS",
     "items": [
-      {
-        "id": "aforevo",
-        "title": "Aforevo",
-        "description": "The undisputed giant of Nollywood streaming. Curating, dubbing, and distributing thousands of hours of premium African movies to the diaspora.",
-        "link": "/brands/aforevo"
-      },
-      {
-        "id": "music",
-        "title": "MBI Music",
-        "description": "Amplifying the rhythm of the continent. From Afrobeatz radio to global DSP distribution, we monetize the sound of Africa.",
-        "link": "/brands/music"
-      },
-      {
-        "id": "tech",
-        "title": "MBI Tech",
-        "description": "Proprietary DRM and anti-piracy infrastructure protecting the intellectual property of African creators.",
-        "link": "/services/tech"
-      }
+      { "label": "Combined Subscribers", "value": "10M+", "id": "subs" },
+      { "label": "Monthly Views", "value": "500M+", "id": "views" },
+      { "label": "Active Channels", "value": "50+", "id": "channels" },
+      { "label": "Content Library", "value": "20K+ Hrs", "id": "library" }
+    ]
+  },
+  "youtube": {
+    "heading": "LIVE FROM OUR NETWORK",
+    "channels": [
+      { "name": "Aforevo", "handle": "@AforevoStage", "subs": "3.5M", "views": "1.2B" },
+      { "name": "Aforevo Dubbing", "handle": "@AforevoDubbing", "subs": "1.8M", "views": "450M" },
+      { "name": "MBI Music", "handle": "@MBIMusic", "subs": "800K", "views": "200M" },
+      { "name": "Yorubahood", "handle": "@Yorubahood", "subs": "2.1M", "views": "900M" }
     ]
   }
 }
