@@ -1,6 +1,7 @@
 {
   "navbar": {
     "links": [
+      { "label": "Home", "href": "/" },
       { "label": "About", "href": "/about" },
       { "label": "Subsidiaries", "href": "/brands" },
       { "label": "Services", "href": "/services" },
