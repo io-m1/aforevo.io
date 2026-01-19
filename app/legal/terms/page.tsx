@@ -15,7 +15,7 @@ export default function TermsPage() {
         <div className="space-y-8 text-gray-300 leading-relaxed">
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">1. Introduction</h2>
-            <p>Welcome to Murphy Ben International ("MBI"). By accessing our websites, services, or visiting our physical locations, you agree to be bound by these Terms and Conditions.</p>
+            <p>Welcome to Murphy Ben International (&quot;MBI&quot;). By accessing our websites, services, or visiting our physical locations, you agree to be bound by these Terms and Conditions.</p>
           </section>
 
           <section>
