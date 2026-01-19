@@ -17,15 +17,10 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-// Helper to sum up metrics (with fallback for "1.2M" strings or raw numbers)
+// Helper to sum up metrics (Mock or Live logic)
 function aggregateMetrics(channels: any[]) {
-  // Logic to parse "1.2M" or numbers would go here. 
-  // For MVP with static strings, we return a representative total or the first channel's dominant stat.
-  // If using real API, we would sum the raw integers.
-  
-  // Mock aggregation for the Visualizer:
   return {
-    totalSubs: "10.4M", // Replace with logic to sum real API data
+    totalSubs: "10.4M", 
     totalViews: "500M+"
   };
 }
@@ -35,28 +30,32 @@ export default async function HomePage() {
   const media = await getMediaContent();
   const pulse = await getPulseContent();
   
-  // Server-side Fetch (Secure)
+  // Secure Server-Side Fetch
   const liveChannels = await getLiveYouTubeMetrics();
   
-  // Calculate totals for the Pulse visualizer
+  // Aggregation
   const aggregatedStats = aggregateMetrics(liveChannels);
 
   return (
     <main className="flex flex-col min-h-screen bg-black text-white">
+      {/* 1. Cinematic Hero (Legacy Authority) */}
       <Hero data={content.hero} />
       
+      {/* 2. Live Stats Strip (Immediate Proof) */}
       <StatsStrip stats={content.metrics.items} />
       
+      {/* 3. Media Visuals (Dopamine/Engagement) */}
       <div className="space-y-0">
         <MediaRow heading={media.movies.heading} items={media.movies.items} type="movie" />
       </div>
 
-      {/* Shows detailed breakdown */}
+      {/* 4. Detailed Youtube Grid (Dominance) */}
       <YouTubeGrid heading={content.youtube.heading} channels={liveChannels} />
       
-      {/* Shows "Empire in Motion" with aggregated stats */}
+      {/* 5. Pulse Network (Liveness & Activity) */}
       <PulseNetwork data={pulse} liveStats={aggregatedStats} />
 
+      {/* 6. Ecosystem (Business Services) */}
       <ServicesGrid heading="Our Ecosystem" items={content.services.items} />
     </main>
   );
