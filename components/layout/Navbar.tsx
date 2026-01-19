@@ -29,7 +29,7 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* Mobile Menu Trigger (Placeholder for client-side interactivity) */}
+        {/* Mobile Menu Placeholder */}
         <button className="md:hidden text-white p-2">
           <span className="sr-only">Open menu</span>
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
