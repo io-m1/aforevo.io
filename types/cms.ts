@@ -1,6 +1,5 @@
 /**
  * Purpose: Defines strict interfaces for content objects.
- * Used by: lib/content.ts, components, app pages
  */
 
 export interface HeroData {
@@ -24,10 +23,36 @@ export interface BrandItem {
   name: string;
   tagline: string;
   description: string;
-  features: string[]; // List of key capabilities (e.g., "YouTube MCN", "Dubbing")
+  features: string[];
   ctaLink: string;
   ctaText: string;
-  image?: string; // Placeholder for brand logo/banner
+  image?: string;
+}
+
+export interface StatItem {
+  label: string;
+  value: string;
+  suffix?: string;
+}
+
+export interface AboutPageContent {
+  metadata: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    heading: string;
+    subheading: string;
+  };
+  mission: {
+    heading: string;
+    body: string;
+  };
+  stats: StatItem[];
+  story: {
+    heading: string;
+    paragraphs: string[];
+  };
 }
 
 export interface HomePageContent {
