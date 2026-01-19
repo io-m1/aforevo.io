@@ -19,6 +19,16 @@
       "image": "/images/brands/aforevo-logo.png"
     },
     {
+      "id": "music",
+      "name": "MBI Music",
+      "tagline": "Amplifying African Sound",
+      "description": "The bridge between African artists and the global market. We handle digital distribution, playlist pitching, and royalty collection for independent artists and labels.",
+      "features": ["DSP Distribution", "Playlist Pitching", "Royalty Collection"],
+      "ctaLink": "/contact",
+      "ctaText": "Distribute With Us",
+      "image": "/images/brands/music-logo.png"
+    },
+    {
       "id": "vybz-fm",
       "name": "Vybz FM",
       "tagline": "The Rhythm of Lagos",
@@ -34,7 +44,7 @@
       "tagline": "Digital Infrastructure",
       "description": "Proprietary tools for piracy protection, content ID management, and automated royalty splitting.",
       "features": ["DRM Protection", "Royalty Automation", "Analytics"],
-      "ctaLink": "/contact",
+      "ctaLink": "/services/tech",
       "ctaText": "Learn More",
       "image": "/images/brands/tech-logo.png"
     }
