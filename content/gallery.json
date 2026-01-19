@@ -7,15 +7,15 @@
     "heading": "CULTURE IN MOTION",
     "subheading": "Behind the scenes of Africa's largest media productions. From the Red Carpet to the Recording Booth."
   },
-  "categories": ["All", "Events", "Studios", "Red Carpet", "Production", "Video"],
+  "categories": ["All", "Events", "Studios", "Red Carpet", "Production", "Albums"],
   "images": [
     {
-      "id": "v1",
-      "type": "video",
-      "src": "https://images.unsplash.com/photo-1578022761797-b8636ac1773c?q=80&w=1200",
-      "videoId": "nNgnWNhpcbM", 
-      "category": "Video",
-      "caption": "MURPHEY BEN GLIT AND GLAM by Chris vechey",
+      "id": "alb1",
+      "type": "link",
+      "src": "https://images.unsplash.com/photo-1566737236500-c8ac43014a67?q=80&w=1200", 
+      "linkUrl": "https://chrisvechey.pixieset.com/murpheybenglitandglam/",
+      "category": "Albums",
+      "caption": "MURPHY BEN GLIT AND GLAM - Full Album",
       "size": "large"
     },
     {
