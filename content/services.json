@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "title": "Our Services | Content Aggregation & Distribution",
+    "description": "End-to-end media solutions: Dubbing, Digital Distribution, Rights Management, and Talent Management."
+  },
+  "hero": {
+    "heading": "COMPREHENSIVE MEDIA SOLUTIONS",
+    "subheading": "We provide the infrastructure for African content to thrive in the digital age."
+  },
+  "categories": [
+    {
+      "title": "Content Distribution",
+      "description": "Maximizing reach across all digital frontiers.",
+      "items": [
+        {
+          "id": "youtube-mcn",
+          "title": "YouTube Network (MCN)",
+          "description": "Management of over 500+ channels, offering optimization, monetization, and audience growth strategies.",
+          "link": "/contact",
+          "details": ["Channel Audit & Strategy", "Content ID Management", "Revenue Optimization"]
+        },
+        {
+          "id": "dsp",
+          "title": "Digital Stores (DSP)",
+          "description": "Delivery of music and video to Spotify, Apple Music, Netflix, and Amazon Prime.",
+          "link": "/brands/music",
+          "details": ["Global Delivery", "Playlist Pitching", "Royalty Collection"]
+        }
+      ]
+    },
+    {
+      "title": "Production & Localization",
+      "description": "Enhancing content value through technical excellence.",
+      "items": [
+        {
+          "id": "dubbing",
+          "title": "Translation & Dubbing",
+          "description": "We own state-of-the-art dubbing studios, translating Nollywood movies into French, Swahili, and local dialects.",
+          "link": "/contact",
+          "details": ["Professional Voice Actors", "Script Adaptation", "Multi-Language Support"]
+        },
+        {
+          "id": "production",
+          "title": "Video Production",
+          "description": "Full-scale production services for music videos, commercials, and feature films.",
+          "link": "/contact",
+          "details": ["4K Cinematography", "Post-Production", "Sound Design"]
+        }
+      ]
+    }
+  ]
+}

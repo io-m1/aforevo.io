@@ -14,6 +14,7 @@ export interface ServiceItem {
   description: string;
   link: string;
   icon?: string;
+  details?: string[]; // New: Detailed bullet points
 }
 
 export interface StatItem {
@@ -30,7 +31,6 @@ export interface YouTubeChannel {
   views: string;
 }
 
-// The Strict Interface for Home Content
 export interface HomePageContent {
   metadata: {
     title: string;
@@ -38,7 +38,6 @@ export interface HomePageContent {
     keywords: string[];
   };
   hero: HeroData;
-  // This was the missing property causing the build failure
   metrics: {
     heading: string;
     items: StatItem[];
@@ -53,7 +52,6 @@ export interface HomePageContent {
   };
 }
 
-// Other Page Types...
 export interface BrandItem {
   id: string;
   name: string;
@@ -81,21 +79,39 @@ export interface AboutPageContent {
   metadata: {
     title: string;
     description: string;
-    keywords?: string[];
   };
   hero: {
     heading: string;
     subheading: string;
   };
-  mission: {
+  narrative: {
     heading: string;
-    body: string;
+    content: string[]; // Array of paragraphs
   };
-  stats: StatItem[];
-  story: {
+  values: {
     heading: string;
-    paragraphs: string[];
+    items: Array<{ title: string; description: string }>;
   };
+  leadership: {
+    heading: string;
+    text: string;
+  };
+}
+
+export interface ServicesPageContent {
+  metadata: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    heading: string;
+    subheading: string;
+  };
+  categories: Array<{
+    title: string;
+    description: string;
+    items: ServiceItem[];
+  }>;
 }
 
 export interface ContactPageContent {

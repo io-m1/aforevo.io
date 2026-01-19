@@ -1,28 +1,31 @@
 {
   "metadata": {
-    "title": "About Murphy Ben International | Bridging African Content",
-    "description": "Learn about MBI's journey from a media startup to a global content aggregator. We bridge the gap between African creativity and the world."
+    "title": "Who We Are | Murphy Ben International",
+    "description": "Established in 2009, MBI is Africa's leading content aggregator and digital media powerhouse."
   },
   "hero": {
-    "heading": "We Are the Bridge",
-    "subheading": "Connecting African creativity to the global digital economy through technology, distribution, and community."
+    "heading": "THE ARCHITECTS OF AFRICAN MEDIA",
+    "subheading": "From a bold vision in 2009 to a global digital empire. We are the bridge between African creativity and the world."
   },
-  "stats": [
-    { "label": "YouTube Subscribers", "value": "10", "suffix": "M+" },
-    { "label": "Monthly Views", "value": "500", "suffix": "M+" },
-    { "label": "Content Hours", "value": "20", "suffix": "K+" },
-    { "label": "Countries Reached", "value": "150", "suffix": "+" }
-  ],
-  "mission": {
-    "heading": "Our Mission",
-    "body": "To empower African storytellers by providing the digital infrastructure, protection, and distribution networks needed to monetize their craft on a global scale. We believe that African content deserves a world-class stage."
-  },
-  "story": {
-    "heading": "Our Journey",
-    "paragraphs": [
-      "Murphy Ben International (MBI) began with a singular vision: to solve the fragmentation of the African entertainment market. Founded by Murphy Ben, the company identified early on that while African content—specifically Nollywood—was in high demand, the distribution channels were broken.",
-      "In 2013, we launched Aforevo, initially as a YouTube-first strategy to capture the diaspora audience. By leveraging data analytics and direct licensing, we grew Aforevo into one of the continent's largest Multi-Channel Networks (MCNs).",
-      "Today, MBI has evolved into a 360-degree digital powerhouse. From our dubbing studios in Lagos translating content into French, Swahili, and Lingala, to our tech division building anti-piracy tools, we are no longer just distributing content; we are defining the ecosystem."
+  "narrative": {
+    "heading": "Our Story",
+    "content": [
+      "Murphy Ben International (MBI) was incorporated in 2009 with a singular vision: to redefine how African entertainment is consumed globally. What started as a passion for Nollywood has evolved into a multi-faceted media conglomerate.",
+      "Today, we stand as the continent's largest YouTube Multi-Channel Network (MCN) and content aggregator. We do not just distribute content; we manage the entire value chain—from acquisition and dubbing to monetization and copyright protection.",
+      "Our ecosystem includes Aforevo, the leading name in digital movie distribution; Vybz FM, the heartbeat of Afrobeatz radio; and MBI Tech, our proprietary infrastructure division. We are the silent engine powering the visibility of thousands of creators."
     ]
+  },
+  "values": {
+    "heading": "Core Pillars",
+    "items": [
+      { "title": "Innovation", "description": "We pioneered the digital shift in Nollywood, moving from VCDs to streaming dominance." },
+      { "title": "Localization", "description": "We break language barriers by dubbing African stories into French, Swahili, and Spanish." },
+      { "title": "Empowerment", "description": "We provide the tools and platforms for independent creators to monetize their art." },
+      { "title": "Integrity", "description": "We are trusted guardians of intellectual property, fighting piracy with advanced tech." }
+    ]
+  },
+  "leadership": {
+    "heading": "Leadership",
+    "text": "Led by Murphy Ben, a visionary entrepreneur with over two decades of experience in media rights and digital distribution."
   }
 }

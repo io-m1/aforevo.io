@@ -1,53 +1,55 @@
 import { Metadata } from 'next';
 import { getAboutPageContent } from '@/lib/content';
-import StatsRow from '@/components/sections/StatsRow';
 
-export const metadata: Metadata = {
-  title: 'About Us | Murphy Ben International',
-  description: 'The story of MBI, Aforevo, and our mission to digitize African entertainment.',
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getAboutPageContent();
+  return {
+    title: content.metadata.title,
+    description: content.metadata.description,
+  };
+}
 
 export default async function AboutPage() {
   const content = await getAboutPageContent();
 
   return (
     <main className="min-h-screen bg-black text-white pt-24 pb-20">
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="container mx-auto px-4 mb-20 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+        <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter">
           {content.hero.heading}
         </h1>
-        <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xl text-gray-400 max-w-3xl mx-auto">
           {content.hero.subheading}
         </p>
       </section>
 
-      {/* Stats Section */}
-      <StatsRow stats={content.stats} />
-
-      {/* Mission Section */}
-      <section className="container mx-auto px-4 py-24 flex flex-col md:flex-row gap-16 items-center">
-        <div className="md:w-1/2">
-           <h2 className="text-3xl font-bold mb-6 text-white border-l-4 border-red-600 pl-4">
-             {content.mission.heading}
-           </h2>
-           <p className="text-lg text-gray-300 leading-relaxed">
-             {content.mission.body}
-           </p>
-        </div>
-        <div className="md:w-1/2 h-64 md:h-80 w-full bg-gray-900 rounded-xl border border-gray-800 flex items-center justify-center">
-           {/* Placeholder for Mission Image */}
-           <span className="text-gray-600 font-bold">Mission Visual</span>
+      {/* Narrative */}
+      <section className="container mx-auto px-4 mb-24">
+        <div className="max-w-4xl mx-auto space-y-6">
+          <h2 className="text-3xl font-bold text-mbi-red mb-8 border-b border-gray-800 pb-4">
+            {content.narrative.heading}
+          </h2>
+          {content.narrative.content.map((paragraph, i) => (
+            <p key={i} className="text-lg md:text-xl leading-relaxed text-gray-300">
+              {paragraph}
+            </p>
+          ))}
         </div>
       </section>
 
-      {/* Story Section */}
-      <section className="bg-gray-900/30 py-24">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <h2 className="text-3xl font-bold mb-10 text-center">{content.story.heading}</h2>
-          <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
-            {content.story.paragraphs.map((para, i) => (
-              <p key={i}>{para}</p>
+      {/* Values Grid */}
+      <section className="bg-neutral-900 py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-white mb-12 text-center">
+            {content.values.heading}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {content.values.items.map((item, i) => (
+              <div key={i} className="bg-black border border-neutral-800 p-8 rounded-xl hover:border-mbi-red transition-colors">
+                <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
+                <p className="text-gray-400">{item.description}</p>
+              </div>
             ))}
           </div>
         </div>
