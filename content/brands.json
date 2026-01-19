@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "MBI Subsidiaries | The Network",
-    "description": "Explore the companies powering the MBI ecosystem: Aforevo, Vybz 94.5 FM, Revo+, and our specialized production divisions."
+    "description": "Explore the companies powering the MBI ecosystem: Aforevo Cinema, Vybz 94.5 FM, Revo+, and our specialized production divisions."
   },
   "hero": {
     "heading": "THE MBI SUBSIDIARIES",
@@ -10,12 +10,12 @@
   "brands": [
     {
       "id": "aforevo",
-      "name": "Aforevo",
+      "name": "Aforevo Cinema",
       "tagline": "The Global Stage",
       "description": "The flagship digital platform aggregating African movies and content. Home to the Aforevo YouTube network and Aforevo Facebook community.",
       "features": ["Content Aggregation", "Digital Streaming", "Community Building"],
-      "ctaLink": "https://www.youtube.com/@AforevoStage",
-      "ctaText": "Aforevo YouTube",
+      "ctaLink": "https://www.youtube.com/@AforevoCinema",
+      "ctaText": "Visit Channel",
       "image": "/images/brands/aforevo-logo.png"
     },
     {
