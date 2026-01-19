@@ -1,0 +1,21 @@
+{
+  "movies": {
+    "heading": "Trending on Aforevo",
+    "items": [
+      { "id": "1", "title": "Lagos Heist", "genre": "Action Thriller", "year": "2025", "image": "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800&auto=format&fit=crop" },
+      { "id": "2", "title": "The Royal Hibiscus", "genre": "Romance", "year": "2024", "image": "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800&auto=format&fit=crop" },
+      { "id": "3", "title": "Ghetto Dreamz", "genre": "Biopic", "year": "2023", "image": "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?q=80&w=800&auto=format&fit=crop" },
+      { "id": "4", "title": "Black Gold", "genre": "Drama", "year": "2025", "image": "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=800&auto=format&fit=crop" },
+      { "id": "5", "title": "Wedding Party 4", "genre": "Comedy", "year": "2026", "image": "https://images.unsplash.com/photo-1517604931442-7105376f7e04?q=80&w=800&auto=format&fit=crop" }
+    ]
+  },
+  "music": {
+    "heading": "Top Afrobeatz Releases",
+    "items": [
+      { "id": "m1", "title": "African Giant", "artist": "Burna Boy", "year": "2024", "image": "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=800&auto=format&fit=crop" },
+      { "id": "m2", "title": "Made in Lagos", "artist": "Wizkid", "year": "2023", "image": "https://images.unsplash.com/photo-1614613535308-eb5fbd3d2c17?q=80&w=800&auto=format&fit=crop" },
+      { "id": "m3", "title": "Rave & Roses", "artist": "Rema", "year": "2025", "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800&auto=format&fit=crop" },
+      { "id": "m4", "title": "Timeless", "artist": "Davido", "year": "2024", "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800&auto=format&fit=crop" }
+    ]
+  }
+}
