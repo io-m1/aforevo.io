@@ -1,4 +1,4 @@
-'use client'; // Switch to Client Component for Search State
+'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -10,6 +10,12 @@ export default function Navbar() {
   const { navbar } = layoutData;
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+  // Inject Gallery into links if not present in JSON
+  const navLinks = [
+    ...navbar.links,
+    { label: "Gallery", href: "/gallery" }
+  ];
+
   return (
     <>
       <header className="fixed w-full top-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/5">
@@ -20,7 +26,7 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {navbar.links.map((link) => (
+            {navLinks.map((link) => (
               <Link 
                 key={link.href} 
                 href={link.href} 
@@ -30,7 +36,6 @@ export default function Navbar() {
               </Link>
             ))}
             
-            {/* Search Trigger */}
             <button 
               onClick={() => setIsSearchOpen(true)}
               className="p-2 text-gray-300 hover:text-white transition-colors"
@@ -59,12 +64,11 @@ export default function Navbar() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </button>
-            <MobileNav links={navbar.links} cta={navbar.cta} />
+            <MobileNav links={navLinks} cta={navbar.cta} />
           </div>
         </div>
       </header>
 
-      {/* Global Search Overlay */}
       <SearchOverlay isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   );

@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "title": "The Vault | MBI Gallery",
+    "description": "A visual journey through the premier events, productions, and moments defining African entertainment."
+  },
+  "hero": {
+    "heading": "CULTURE IN MOTION",
+    "subheading": "Behind the scenes of Africa's largest media productions. From the Red Carpet to the Recording Booth."
+  },
+  "categories": ["All", "Events", "Studios", "Red Carpet", "Production"],
+  "images": [
+    {
+      "id": "g1",
+      "src": "https://images.unsplash.com/photo-1514525253440-b393452e8d26?q=80&w=1200",
+      "category": "Events",
+      "caption": "MBI Annual Gala 2025",
+      "size": "large" 
+    },
+    {
+      "id": "g2",
+      "src": "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=800",
+      "category": "Studios",
+      "caption": "Inside Vybz FM Studio A",
+      "size": "tall"
+    },
+    {
+      "id": "g3",
+      "src": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200",
+      "category": "Events",
+      "caption": "Aforevo Fan Festival - Lagos",
+      "size": "wide"
+    },
+    {
+      "id": "g4",
+      "src": "https://images.unsplash.com/photo-1603190287605-e6ade32fa852?q=80&w=800",
+      "category": "Production",
+      "caption": "On Set: 'Lagos Heist'",
+      "size": "small"
+    },
+    {
+      "id": "g5",
+      "src": "https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=800",
+      "category": "Red Carpet",
+      "caption": "AMVCA Awards Night",
+      "size": "tall"
+    },
+    {
+      "id": "g6",
+      "src": "https://images.unsplash.com/photo-1478720568477-152d9b164e63?q=80&w=1200",
+      "category": "Production",
+      "caption": "Dubbing Studio Session",
+      "size": "wide"
+    },
+    {
+      "id": "g7",
+      "src": "https://images.unsplash.com/photo-1574169208507-84376194878d?q=80&w=800",
+      "category": "Studios",
+      "caption": "MBI Tech Hub",
+      "size": "small"
+    },
+    {
+      "id": "g8",
+      "src": "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1200",
+      "category": "Events",
+      "caption": "Vybz FM Launch Party",
+      "size": "large"
+    }
+  ]
+}
