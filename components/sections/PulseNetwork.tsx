@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-interface PulseItem {
+export interface PulseItem {
   id: string;
   category: string;
   message: string;
@@ -17,13 +17,16 @@ interface PulseNetworkProps {
     subheading: string;
     items: PulseItem[];
   };
+  liveStats?: {
+    totalSubs: string;
+    totalViews: string;
+  };
 }
 
-export default function PulseNetwork({ data }: PulseNetworkProps) {
+export default function PulseNetwork({ data, liveStats }: PulseNetworkProps) {
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
   const handleShare = (item: PulseItem) => {
-    // Simulate sharing/copying logic
     const text = `${item.category}: ${item.message} - via MBI Network`;
     navigator.clipboard.writeText(text);
     setCopiedId(item.id);
@@ -33,7 +36,7 @@ export default function PulseNetwork({ data }: PulseNetworkProps) {
   return (
     <section className="bg-neutral-900 border-t border-neutral-800 py-20 overflow-hidden">
       <div className="container mx-auto px-4">
-        {/* Section Header */}
+        {/* Header with "Live" Indicator */}
         <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-2">
@@ -49,10 +52,17 @@ export default function PulseNetwork({ data }: PulseNetworkProps) {
             <p className="text-gray-400 mt-2">{data.subheading}</p>
           </div>
           
-          <div className="flex gap-4 text-sm font-mono text-gray-500">
+          {/* Live Server Stats */}
+          <div className="flex gap-4 text-sm font-mono text-gray-500 border border-neutral-800 p-2 rounded bg-black/50">
              <span>SERVER: LAG-01</span>
-             <span>•</span>
+             <span className="text-neutral-700">|</span>
              <span>UPTIME: 99.99%</span>
+             {liveStats && (
+               <>
+                 <span className="text-neutral-700">|</span>
+                 <span className="text-white">LIVE SUBS: {liveStats.totalSubs}</span>
+               </>
+             )}
           </div>
         </div>
 
@@ -64,7 +74,6 @@ export default function PulseNetwork({ data }: PulseNetworkProps) {
                 key={item.id} 
                 className="group relative pl-8 border-l border-neutral-800 hover:border-mbi-red transition-colors duration-300"
               >
-                {/* Timeline Dot */}
                 <div className="absolute left-[-5px] top-0 w-2.5 h-2.5 rounded-full bg-neutral-800 group-hover:bg-mbi-red transition-colors" />
                 
                 <div className="flex items-center justify-between mb-1">
@@ -87,11 +96,9 @@ export default function PulseNetwork({ data }: PulseNetworkProps) {
                     </span>
                   )}
                   <span className="text-xs text-gray-600 flex items-center gap-1">
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                     {item.location}
                   </span>
                   
-                  {/* Share Action */}
                   <button 
                     onClick={() => handleShare(item)}
                     className="text-xs text-gray-500 hover:text-white flex items-center gap-1 ml-auto transition-colors"
@@ -99,10 +106,7 @@ export default function PulseNetwork({ data }: PulseNetworkProps) {
                     {copiedId === item.id ? (
                       <span className="text-green-500 font-bold">Copied!</span>
                     ) : (
-                      <>
-                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" /></svg>
-                        Share
-                      </>
+                      <span>Share</span>
                     )}
                   </button>
                 </div>
@@ -110,31 +114,35 @@ export default function PulseNetwork({ data }: PulseNetworkProps) {
             ))}
           </div>
 
-          {/* RIGHT: Global Footprint (Visual Abstraction) */}
+          {/* RIGHT: Global Footprint Map */}
           <div className="lg:w-1/2 relative min-h-[400px] bg-black border border-neutral-800 rounded-2xl overflow-hidden flex items-center justify-center">
-             {/* Background Grid */}
              <div className="absolute inset-0 opacity-20" 
                   style={{ backgroundImage: 'linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px)', backgroundSize: '40px 40px' }} 
              />
              
-             {/* Map Abstraction */}
              <div className="relative z-10 w-full h-full p-8 flex flex-col items-center justify-center text-center">
+                {/* Radar Animation */}
                 <div className="w-64 h-64 rounded-full border border-mbi-red/30 flex items-center justify-center animate-[spin_10s_linear_infinite]">
                   <div className="w-48 h-48 rounded-full border border-mbi-red/50 border-dashed" />
                 </div>
                 
+                {/* Central Stat: Uses Live Data if available, else static footprint */}
                 <div className="absolute inset-0 flex items-center justify-center">
                    <div className="space-y-2 bg-black/80 backdrop-blur-sm p-6 rounded-xl border border-neutral-800">
-                      <p className="text-xs font-mono text-gray-500 uppercase tracking-widest">Active Footprint</p>
-                      <p className="text-4xl font-black text-white">150+</p>
-                      <p className="text-sm text-gray-400">Countries Reached</p>
+                      <p className="text-xs font-mono text-gray-500 uppercase tracking-widest">
+                        {liveStats ? 'Network Velocity' : 'Active Footprint'}
+                      </p>
+                      <p className="text-4xl font-black text-white">
+                        {liveStats ? liveStats.totalViews : '150+'}
+                      </p>
+                      <p className="text-sm text-gray-400">
+                        {liveStats ? 'Monthly Views' : 'Countries Reached'}
+                      </p>
                    </div>
                 </div>
 
-                {/* Pulsing Nodes */}
                 <div className="absolute top-1/4 left-1/4 w-3 h-3 bg-mbi-red rounded-full animate-ping" />
                 <div className="absolute bottom-1/3 right-1/4 w-2 h-2 bg-mbi-gold rounded-full animate-ping delay-75" />
-                <div className="absolute top-1/2 right-1/3 w-2 h-2 bg-blue-500 rounded-full animate-ping delay-150" />
              </div>
           </div>
         </div>
