@@ -1,40 +1,16 @@
 import type { Metadata } from "next";
-import { Inter, Bebas_Neue } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const bebas = Bebas_Neue({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-bebas",
-  display: "swap",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://mbi247.com"),
-  title: {
-    default: "Murphy Ben International | Africa's Largest Content Aggregator",
-    template: "%s | MBI247",
-  },
-  description: "Africa's leading media powerhouse: Nollywood streaming, Afrobeatz radio, dubbing services, production, distribution, and talent management.",
-  keywords: ["Nollywood streaming", "Afrobeatz radio", "African content aggregator", "African dubbing services", "Murphy Ben International"],
-  openGraph: {
-    type: "website",
-    siteName: "Murphy Ben International",
-    title: "Murphy Ben International | Africa's Largest Content Aggregator",
-    description: "Promoting African storytelling through innovative media production and distribution.",
-    images: "/og-image.jpg", // placeholder - add real image later
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Murphy Ben International",
-    description: "Africa's largest content aggregator and media powerhouse.",
-    images: "/twitter-image.jpg",
+  title: "Murphy Ben International",
+  description: "Africa's Leading Content Aggregator & Digital Distributor",
+  icons: {
+    icon: "/favicon.ico",
   },
 };
 
@@ -44,9 +20,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${bebas.variable} dark`}>
-      <body className="antialiased bg-[#0A0A0A] text-white min-h-screen">
+    <html lang="en">
+      <body className={inter.className}>
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );

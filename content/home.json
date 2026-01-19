@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "title": "Murphy Ben International | Global African Entertainment & Digital Distribution",
+    "description": "MBI is the premier African content aggregator and digital distributor. From Nollywood streaming on Aforevo to Afrobeatz radio, we bridge the gap between African creativity and the global audience.",
+    "keywords": ["Nollywood streaming", "African content aggregator", "Afrobeatz radio", "YouTube MCN Africa", "Aforevo", "Digital Rights Management"]
+  },
+  "hero": {
+    "heading": "Amplifying African Voices to the World",
+    "subheading": "The leading digital architecture for African entertainment. We power the ecosystem of Nollywood streaming, Afrobeatz radio, and creator monetization through cutting-edge technology and global distribution networks.",
+    "ctaText": "Explore Our Ecosystem",
+    "ctaLink": "/brands",
+    "backgroundImage": "/images/hero-network-map.jpg"
+  },
+  "services": {
+    "heading": "Our Integrated Digital Ecosystem",
+    "items": [
+      {
+        "id": "aforevo",
+        "title": "Aforevo",
+        "description": "The ultimate destination for Nollywood streaming. We curate and distribute thousands of hours of premium African movies to a global diaspora audience via YouTube and O&O platforms.",
+        "link": "/brands/aforevo"
+      },
+      {
+        "id": "music-distribution",
+        "title": "Music & Audio",
+        "description": "Powering the rhythm of the continent. Our Afrobeatz radio and digital music distribution networks ensure African artists monetize their sound across Spotify, Apple Music, and local platforms.",
+        "link": "/brands/music"
+      },
+      {
+        "id": "tech-solutions",
+        "title": "MBI Tech",
+        "description": "Bespoke software architecture and digital rights management (DRM) solutions designed to protect and monetize intellectual property in the African market.",
+        "link": "/services/tech"
+      }
+    ]
+  }
+}
