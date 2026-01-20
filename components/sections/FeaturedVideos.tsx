@@ -9,11 +9,11 @@ const FEATURED = [
     link: "https://www.youtube.com/watch?v=AeA6JyJmD9Y"
   },
   {
-    title: "TREASURE BOX (EP 468)",
-    category: "MARK ANGEL COMEDY",
-    views: "1.5M+ Views",
-    image: "https://img.youtube.com/vi/wEU3KYkpVMM/maxresdefault.jpg",
-    link: "https://www.youtube.com/watch?v=wEU3KYkpVMM"
+    title: "THE HIDDEN TRUTH",
+    category: "AFRICAN VILLAGE TV",
+    views: "439K+ Views",
+    image: "https://img.youtube.com/vi/D44lPP3CwGI/maxresdefault.jpg",
+    link: "https://www.youtube.com/watch?v=D44lPP3CwGI"
   },
   {
     title: "CE FILM D'AMOUR (FRANÇAIS)",
