@@ -1,81 +1,116 @@
 import Image from 'next/image';
-
-const MBI_CHANNELS = [
-  { name: "AfricanMovies 247", id: "UCZPJTc9RCl2mJUAiTM8TZ0A", manager: "Rebecca Anawana", category: "Movies" },
-  { name: "MANARI TV", id: "UCK6qSzNCRQn0Q7oG2F1yQMw", manager: "Isioma Batiwe", category: "Drama" },
-  { name: "MNARODI TV SENEGAL", id: "UCbrGlcjjG-Z6hpPs-n_lE7w", manager: "Oparaugo Chioma", category: "French/Wolof" },
-  { name: "BLACK MOVIES TV", id: "UCaoyvHOxmdmqa4Q99dNbmpA", manager: "Peter Joseph", category: "Movies" },
-  { name: "NOLLY SCENT TV", id: "UC7mj73fZsuuRhcng_SRrvDg", manager: "Daniel Olise", category: "Nollywood" },
-  { name: "AFRICAN PICTURE TV", id: "UCPlzDTuDKHUSE0eb3Th59ow", manager: "Okosa Chibuikem", category: "Entertainment" },
-  { name: "YUMMY NOLLYWOOD", id: "UC1119YgSojL_Bx9xGJt2oOg", manager: "Catherine Madufor", category: "Lifestyle" },
-  { name: "KODI TV", id: "UC_p_R0DlnrLDlsF4R2ib6tg", manager: "Chikaodiri Umeizudike", category: "Series" },
-  { name: "IMAGE AFRICAINE", id: "UCxri7ruhy6vag0YqOFaV7MA", manager: "Esther Ibitoye", category: "French" },
-  { name: "FamilyTies Cinema", id: "UCjLl-Mwc0VbgrdJiMnzi9Lg", manager: "Igwebuike Loveth", category: "Family" },
-  { name: "African Tales Tv", id: "UCynV8t9QODIMB7ATaT0Blbg", manager: "David Joseph", category: "Folklore" },
-  { name: "Home Of Trending Movies", id: "UCM53Fx8EWButmZ7YhmW2GxQ", manager: "Obi Maureen", category: "Trending" },
-  { name: "Yoruba Styles", id: "UCDF1tRy_Y0j0vLHOoL9dndw", manager: "Matanmi Oluwabusayo", category: "Culture" },
-  { name: "PureNolly Premium TV", id: "UCS3OsUcCA-vkr2HQVpppMfg", manager: "Godwin Otti", category: "Premium" },
-  { name: "FILMS NOLLYWOOD5ETOILE", id: "UC3I5onUB4Hh9NumHGkBdNHg", manager: "Michael Chizoba", category: "French" },
-  { name: "Movie Lane", id: "UC9tRJPypwfM63SZ5J6EWtWA", manager: "Esther Ochiaka", category: "Movies" }
-];
+import networkData from '@/content/network.json';
 
 export default function NetworkGrid() {
   return (
-    <section className="py-20 border-t border-white/10 bg-neutral-900">
+    <section className="py-24 bg-neutral-900 border-t border-white/5">
       <div className="container mx-auto px-4">
-        <div className="mb-12 text-center">
-           <h2 className="text-3xl md:text-5xl font-black text-white mb-4 tracking-tight">
+        
+        {/* HEADER */}
+        <div className="mb-20 text-center">
+           <h2 className="text-fluid-h1 font-black text-white mb-6 tracking-tight">
              THE MBI NETWORK GIANTS
            </h2>
-           <p className="text-gray-400 max-w-2xl mx-auto">
-             A powerhouse of managed channels driving millions of daily views across the continent.
-             <span className="block text-mbi-red font-bold mt-2 uppercase tracking-widest text-xs">
-               Grade 4 (High Flyers) • Verified Management
-             </span>
+           <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+             We manage the infrastructure, monetization, and growth for Africa's most influential channels.
            </p>
         </div>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-          {MBI_CHANNELS.map((channel, i) => (
-            <a 
-              key={channel.id}
-              href={`https://www.youtube.com/channel/${channel.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-black border border-white/5 rounded-lg p-4 hover:border-mbi-red transition-all hover:bg-neutral-800 flex flex-col justify-between h-32"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-[10px] text-gray-500 font-mono uppercase">{channel.category}</span>
+
+        {/* TIER 1: LEGENDS (Grade 5) */}
+        <div className="mb-24">
+          <div className="flex items-center gap-4 mb-8">
+             <div className="h-px bg-white/20 flex-1" />
+             <span className="text-mbi-gold font-black uppercase tracking-[0.3em] text-sm">Legends in the Making</span>
+             <div className="h-px bg-white/20 flex-1" />
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {networkData.legends.map((channel) => (
+              <a 
+                key={channel.id}
+                href={`https://www.youtube.com/channel/${channel.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative h-80 rounded-2xl overflow-hidden border border-mbi-gold/30 bg-black hover:border-mbi-gold transition-all duration-500 hover:shadow-[0_0_50px_rgba(255,215,0,0.2)]"
+              >
+                {/* Simulated Channel Art Background */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-neutral-800 group-hover:scale-105 transition-transform duration-700" />
+                
+                <div className="absolute inset-0 flex flex-col justify-end p-8">
+                   <div className="w-16 h-16 rounded-full bg-mbi-gold flex items-center justify-center text-black font-black text-2xl mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                      {channel.name.charAt(0)}
+                   </div>
+                   <h3 className="text-2xl font-black text-white mb-2 leading-none">{channel.name}</h3>
+                   <div className="flex items-center gap-3">
+                     <span className="px-3 py-1 bg-white/10 backdrop-blur rounded text-xs font-bold text-mbi-gold uppercase tracking-wider border border-mbi-gold/20">
+                       Top Tier
+                     </span>
+                     <span className="text-gray-400 text-sm font-mono">{channel.watchtime} Watchtime</span>
+                   </div>
                 </div>
-                <h3 className="text-sm font-bold text-white group-hover:text-mbi-red line-clamp-2 leading-tight">
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* TIER 2: HIGH FLYERS (Grade 4) */}
+        <div className="mb-20">
+          <div className="flex items-center gap-4 mb-8">
+             <span className="text-mbi-red font-bold uppercase tracking-widest text-xs">High Flyers (Grade 4)</span>
+             <div className="h-px bg-white/10 flex-1" />
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {networkData.highFlyers.map((channel) => (
+              <a 
+                key={channel.id}
+                href={`https://www.youtube.com/channel/${channel.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-black/50 border border-white/5 rounded-lg p-5 hover:bg-neutral-800 hover:border-white/20 transition-all flex flex-col justify-between h-36"
+              >
+                <div>
+                   <h3 className="text-sm font-bold text-white group-hover:text-mbi-red leading-tight mb-2 line-clamp-2">
+                     {channel.name}
+                   </h3>
+                   <div className="w-8 h-1 bg-neutral-700 rounded-full group-hover:bg-mbi-red transition-colors" />
+                </div>
+                <div className="flex justify-between items-end mt-4">
+                   <span className="text-[10px] text-gray-500 font-mono uppercase tracking-wider">Managed</span>
+                   <span className="text-xs text-white font-bold">{channel.watchtime}</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* TIER 3: THE ARMY (Rising Stars - Scrollable) */}
+        <div>
+          <div className="flex items-center gap-4 mb-8">
+             <span className="text-gray-500 font-bold uppercase tracking-widest text-xs">Rising Stars & Starters (50+)</span>
+             <div className="h-px bg-white/10 flex-1" />
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-8 gap-3 opacity-60 hover:opacity-100 transition-opacity">
+            {networkData.risingStars.map((channel) => (
+              <a 
+                key={channel.id}
+                href={`https://www.youtube.com/channel/${channel.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block p-3 bg-black border border-white/5 rounded text-center hover:border-white/30 transition-colors"
+              >
+                <div className="w-8 h-8 mx-auto rounded-full bg-neutral-800 flex items-center justify-center text-[10px] text-gray-400 font-bold mb-2">
+                   {channel.name.charAt(0)}
+                </div>
+                <h4 className="text-[10px] font-bold text-gray-300 truncate w-full">
                   {channel.name}
-                </h3>
-              </div>
-              
-              <div className="flex items-center gap-2 mt-3">
-                 <div className="w-6 h-6 rounded-full bg-neutral-700 flex items-center justify-center text-[10px] text-white font-bold">
-                    {channel.name.charAt(0)}
-                 </div>
-                 <span className="text-[10px] text-gray-500 truncate">
-                   Managed by MBI
-                 </span>
-              </div>
-            </a>
-          ))}
+                </h4>
+              </a>
+            ))}
+          </div>
         </div>
         
-        <div className="mt-12 text-center">
-          <a 
-            href="https://www.youtube.com/results?search_query=Murphy+Ben+International" 
-            target="_blank"
-            className="inline-flex items-center gap-2 text-white border-b border-mbi-red pb-1 hover:text-mbi-red transition-colors text-sm font-bold uppercase tracking-widest"
-          >
-            View Full Portfolio
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-          </a>
-        </div>
       </div>
     </section>
   );
