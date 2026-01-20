@@ -116,7 +116,7 @@ export default function TitanReveal() {
                 
                 <div className="glass-panel inline-block px-8 py-6 rounded-xl max-w-2xl border-mbi-gold/20">
                   <p className="text-gray-300 italic text-lg">
-                    "{MOCK_TITAN.achievement}"
+                    &quot;{MOCK_TITAN.achievement}&quot;
                   </p>
                 </div>
               </motion.div>
