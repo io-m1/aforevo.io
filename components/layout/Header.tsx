@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Logo from '@/components/ui/Logo';
-import { ThemeToggle } from '@/components/ui/ThemeToggle'; // IMPORT TOGGLE
+import { ThemeToggle } from '@/components/ui/ThemeToggle';
+import RadioButton from '@/components/ui/RadioButton'; // IMPORT RADIO
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -61,20 +62,15 @@ export default function Header() {
           })}
         </nav>
 
-        {/* 3. ACTIONS (Partner + Toggle) */}
+        {/* 3. ACTIONS (Theme + Radio) */}
         <div className="hidden md:flex items-center gap-4">
-          <ThemeToggle /> {/* THE TOGGLE */}
-          <Link 
-            href="/brands" 
-            className="px-6 py-2.5 bg-black dark:bg-white text-white dark:text-black text-xs font-black uppercase tracking-widest hover:bg-mbi-red dark:hover:bg-mbi-gold transition-colors rounded-sm"
-          >
-            Partner
-          </Link>
+          <ThemeToggle />
+          <RadioButton /> {/* THE NEW SATELLITE LINK */}
         </div>
 
         {/* 4. MOBILE TOGGLE */}
         <div className="flex items-center gap-4 md:hidden relative z-50">
-          <ThemeToggle />
+          <RadioButton /> {/* ALSO ON MOBILE */}
           <button 
             onClick={() => setIsOpen(!isOpen)}
             className="text-black dark:text-white p-2"
@@ -100,6 +96,9 @@ export default function Header() {
                 {link.name}
               </Link>
             ))}
+            <div className="flex gap-4 mt-8">
+              <ThemeToggle />
+            </div>
           </motion.div>
         )}
       </div>
