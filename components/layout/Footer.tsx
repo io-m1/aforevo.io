@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Logo from '@/components/ui/Logo';
-import { Twitter, Instagram, Linkedin, Youtube, Mail, MapPin } from 'lucide-react';
+import { Twitter, Instagram, Linkedin, Youtube, Mail, MapPin, Phone } from 'lucide-react';
+import { MANIFESTO } from '@/content/manifesto';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -11,28 +12,28 @@ export default function Footer() {
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
           
-          {/* COLUMN 1: BRAND */}
+          {/* COLUMN 1: BRAND & SOCIALS */}
           <div className="space-y-6">
             <Logo className="text-2xl" />
             <p className="text-gray-500 leading-relaxed max-w-xs">
               Africa&apos;s leading digital media and entertainment conglomerate. 
-              Defining the narrative since 2009.
+              Defining the narrative since {MANIFESTO.founded}.
             </p>
             <div className="flex gap-4">
-              <SocialIcon icon={<Youtube className="w-5 h-5" />} href="https://youtube.com/@Aforevo" />
+              <SocialIcon icon={<Youtube className="w-5 h-5" />} href="https://youtube.com/c/AforevoTV1" />
               <SocialIcon icon={<Linkedin className="w-5 h-5" />} href="https://linkedin.com/company/murphy-ben-international" />
-              <SocialIcon icon={<Instagram className="w-5 h-5" />} href="#" />
-              <SocialIcon icon={<Twitter className="w-5 h-5" />} href="#" />
+              <SocialIcon icon={<Instagram className="w-5 h-5" />} href="https://instagram.com/murphybeninternational" />
+              <SocialIcon icon={<Twitter className="w-5 h-5" />} href="https://twitter.com/murphybenintl" />
             </div>
           </div>
 
-          {/* COLUMN 2: NETWORK */}
+          {/* COLUMN 2: NETWORK (Replicated from Scan) */}
           <div>
             <h4 className="font-bold text-white uppercase tracking-widest mb-6">The Network</h4>
             <ul className="space-y-4 text-gray-500">
-              <FooterLink href="/brands">Aforevo YouTube</FooterLink>
+              <FooterLink href="https://youtube.com/@AforevoStage">Aforevo Stage (2.6M+)</FooterLink>
+              <FooterLink href="https://vybzfm.com">Vybz 94.5 FM</FooterLink>
               <FooterLink href="/brands">Aforevo Dubbing</FooterLink>
-              <FooterLink href="/brands">Vybz 94.5 FM</FooterLink>
               <FooterLink href="/brands">MBI Music</FooterLink>
               <FooterLink href="/services">Global Syndication</FooterLink>
             </ul>
@@ -50,22 +51,29 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* COLUMN 4: LOCATIONS */}
+          {/* COLUMN 4: LOCATIONS (Corrected from Scan) */}
           <div>
-            <h4 className="font-bold text-white uppercase tracking-widest mb-6">Global HQ</h4>
+            <h4 className="font-bold text-white uppercase tracking-widest mb-6">Headquarters</h4>
             <ul className="space-y-6 text-gray-500">
               <li className="flex gap-3">
                 <MapPin className="w-5 h-5 text-mbi-red shrink-0" />
                 <span>
                   <strong className="block text-white mb-1">Lagos (Global HQ)</strong>
-                  No. 22 Osolo Way, Ajao Estate,<br />Lagos, Nigeria
+                  {MANIFESTO.contact.address}
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <Phone className="w-5 h-5 text-gray-600 shrink-0" />
+                <span>
+                  <strong className="block text-white mb-1">Phone</strong>
+                  {MANIFESTO.contact.phone}
                 </span>
               </li>
               <li className="flex gap-3">
                 <MapPin className="w-5 h-5 text-gray-600 shrink-0" />
                 <span>
-                  <strong className="block text-white mb-1">London</strong>
-                  Operations & Licensing Office<br />United Kingdom
+                  <strong className="block text-white mb-1">International</strong>
+                  London • New York • Johannesburg
                 </span>
               </li>
             </ul>
@@ -102,11 +110,16 @@ function SocialIcon({ icon, href }: { icon: React.ReactNode, href: string }) {
 }
 
 function FooterLink({ href, children }: { href: string, children: React.ReactNode }) {
+  const isExternal = href.startsWith('http');
+  const Component = isExternal ? 'a' : Link;
+  const props = isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+
   return (
     <li>
-      <Link href={href} className="hover:text-mbi-gold transition-colors flex items-center gap-2">
+      {/* @ts-ignore */}
+      <Component href={href} {...props} className="hover:text-mbi-gold transition-colors flex items-center gap-2">
         {children}
-      </Link>
+      </Component>
     </li>
   );
 }

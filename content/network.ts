@@ -1,55 +1,30 @@
 import { NetworkChannel } from '@/lib/types';
 
 export const NETWORK_CHANNELS: NetworkChannel[] = [
-  // FLAGSHIPS
+  // FLAGSHIPS (The Giants)
   {
     name: 'Aforevo',
     handle: '@Aforevo',
-    subscribers: '10M+',
+    subscribers: '10M+ (Network)',
     category: 'NOLLYWOOD',
     description: 'The mothership. The #1 destination for African movies on YouTube.',
     isFlagship: true
   },
   {
-    name: 'Aforevo Dubbing',
-    handle: '@AforevoDubbing',
-    subscribers: '2.5M+',
-    category: 'NOLLYWOOD',
-    description: 'Bringing African stories to the Francophone world.',
-    isFlagship: true
-  },
-  {
-    name: 'Vybz 94.5 FM',
-    handle: '@Vybz94.5',
-    subscribers: '150K+',
-    category: 'MUSIC',
-    description: 'Visual radio and exclusive artist interviews from the heart of Lagos.',
-    isFlagship: true
-  },
-  {
-    name: 'Murphy Ben International',
-    handle: '@MurphyBenInternational',
-    subscribers: '500K+',
-    category: 'LIFESTYLE',
-    description: 'Corporate updates, tech reviews, and behind-the-scenes of the empire.',
-    isFlagship: true
-  },
-  // THE LONG TAIL (Proof of Scale)
-  {
     name: 'Aforevo Stage',
     handle: '@AforevoStage',
-    subscribers: '200K+',
-    category: 'LIFESTYLE',
-    description: 'Live concerts, comedy shows, and experiential events.',
-    isFlagship: false
+    subscribers: '2.6M+',
+    category: 'NOLLYWOOD',
+    description: 'Exclusive premieres and blockbuster releases. The fastest growing channel in the network.',
+    isFlagship: true
   },
   {
-    name: 'Nollywood Realn',
-    handle: '@NollywoodRealn',
-    subscribers: '800K+',
-    category: 'NOLLYWOOD',
-    description: 'Classic blockbusters and golden age cinema.',
-    isFlagship: false
+    name: 'Mark Angel Comedy',
+    handle: '@MarkAngelComedy',
+    subscribers: '9.1M+',
+    category: 'COMEDY',
+    description: 'Strategic partnership with Africa’s biggest comedy brand.',
+    isFlagship: true
   },
   {
     name: 'Real Nolly',
@@ -57,6 +32,39 @@ export const NETWORK_CHANNELS: NetworkChannel[] = [
     subscribers: '1.2M+',
     category: 'NOLLYWOOD',
     description: 'Premium family entertainment and drama series.',
+    isFlagship: true
+  },
+  // THE ECOSYSTEM (Proof of Breadth)
+  {
+    name: 'Yorubahood',
+    handle: '@Yorubahood',
+    subscribers: '1.5M+',
+    category: 'NOLLYWOOD',
+    description: 'The definitive home for Yoruba language cinema.',
+    isFlagship: false
+  },
+  {
+    name: 'Aforevo Dubbing',
+    handle: '@AforevoDubbing',
+    subscribers: '500K+',
+    category: 'NOLLYWOOD',
+    description: 'Breaking language barriers with French, Swahili, and Lingala dubs.',
+    isFlagship: false
+  },
+  {
+    name: 'Vybz 94.5 FM',
+    handle: '@Vybz94.5',
+    subscribers: '150K+',
+    category: 'MUSIC',
+    description: 'Visual radio and exclusive artist interviews from the heart of Lagos.',
+    isFlagship: false
+  },
+  {
+    name: 'Murphy Ben International',
+    handle: '@MurphyBenInternational',
+    subscribers: '500K+',
+    category: 'LIFESTYLE',
+    description: 'Corporate updates, tech reviews, and behind-the-scenes.',
     isFlagship: false
   },
   {
@@ -68,20 +76,12 @@ export const NETWORK_CHANNELS: NetworkChannel[] = [
     isFlagship: false
   },
   {
-    name: 'Yorubahood',
-    handle: '@Yorubahood',
-    subscribers: '1.5M+',
+    name: 'Nollywood Realn',
+    handle: '@NollywoodRealn',
+    subscribers: '800K+',
     category: 'NOLLYWOOD',
-    description: 'The definitive home for Yoruba language cinema.',
+    description: 'Classic blockbusters and golden age cinema.',
     isFlagship: false
-  },
-  {
-    name: 'Mark Angel Comedy',
-    handle: '@MarkAngelComedy',
-    subscribers: '9.1M+',
-    category: 'COMEDY',
-    description: 'Strategic partnership with Africa’s biggest comedy brand.',
-    isFlagship: true
   },
   {
     name: 'Aforevo Shorts',
