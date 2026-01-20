@@ -48,8 +48,9 @@ export default function ServicesPage() {
                   {service.description}
                 </p>
                 
+                {/* FIXED: Explicitly typed feature as string */}
                 <ul className="space-y-3 mb-8">
-                  {service.features.map((feature, i) => (
+                  {service.features.map((feature: string, i: number) => (
                     <li key={i} className="flex items-center gap-3 text-sm font-medium text-gray-300">
                       <div className="w-1.5 h-1.5 bg-mbi-red rounded-full" />
                       {feature}
