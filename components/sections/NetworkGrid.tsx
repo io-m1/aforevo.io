@@ -12,7 +12,7 @@ export default function NetworkGrid() {
              THE MBI NETWORK GIANTS
            </h2>
            <p className="text-gray-400 max-w-2xl mx-auto text-lg">
-             We manage the infrastructure, monetization, and growth for Africa's most influential channels.
+             We manage the infrastructure, monetization, and growth for Africa&apos;s most influential channels.
            </p>
         </div>
 
