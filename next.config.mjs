@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
   images: {
     remotePatterns: [
       {
@@ -9,8 +8,16 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'i.ytimg.com', // Allow YouTube thumbnails
+        hostname: 'img.youtube.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'yt3.ggpht.com', // YouTube Avatars
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io', // Sanity CMS
+      }
     ],
   },
 };
