@@ -1,104 +1,68 @@
-import Image from 'next/image';
+'use client';
 
-// REAL PROPRIETARY DATA SEEDING
-const FEATURED_CHANNELS = [
-  { 
-    id: 1, 
-    title: "Aforevo Stage", 
-    subtitle: "2.6M+ Subscribers • Premium Nollywood", 
-    brand: "Flagship", 
-    img: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800", // Cinematic placeholder until dynamic fetch
-    link: "https://www.youtube.com/@AforevoStage" // CONFIRMED LINK
-  },
-  { 
-    id: 2, 
-    title: "Yorubahood", 
-    subtitle: "1.3M+ Subscribers • Yoruba Culture", 
-    brand: "Partner", 
-    img: "https://images.unsplash.com/photo-1517604931442-7105376f7e04?q=80&w=800",
-    link: "https://www.youtube.com/@yorubahoodTV" // CONFIRMED LINK
-  },
-  { 
-    id: 3, 
-    title: "Aforevo Cinema", 
-    subtitle: "24K+ Subscribers • New Releases", 
-    brand: "Trending", 
-    img: "https://img.youtube.com/vi/baoyWPnUpYU/maxresdefault.jpg", // Real Video Thumb
-    link: "https://www.youtube.com/@aforevocinema" // CONFIRMED LINK
-  },
-  { 
-    id: 4, 
-    title: "Vybz 94.5 FM", 
-    subtitle: "Lagos' #1 Afrobeatz Station", 
-    brand: "Radio", 
-    img: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=800",
-    link: "https://www.youtube.com/@vybz945fmlagos" // CONFIRMED LINK
-  },
+import { Play } from 'lucide-react';
+
+const TRENDING_VIDEOS = [
+  // MOCK DATA - Ideally this comes from YouTube API
+  { title: "Lagos Heist: Official Trailer", views: "2.4M", duration: "2:30", img: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800" },
+  { title: "Yorubahood: The Wedding Party", views: "1.8M", duration: "1:45", img: "https://images.unsplash.com/photo-1517604931442-71053e3e2c28?q=80&w=800" },
+  { title: "Vybz FM: Burna Boy Interview", views: "800K", duration: "15:00", img: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=800" },
+  { title: "Aforevo Music: Top 10 Hits", views: "4.5M", duration: "8:20", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800" },
+  { title: "Behind The Scenes: Nollywood", views: "500K", duration: "5:12", img: "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=800" },
+  { title: "Comedy Skits Compilation", views: "3.2M", duration: "10:00", img: "https://images.unsplash.com/photo-1527224857830-43a7acc85260?q=80&w=800" },
+  { title: "Action Movie: The Cartel", views: "1.2M", duration: "1:55", img: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800" },
+  { title: "Documentary: Rise of Afrobeats", views: "900K", duration: "45:00", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800" }
 ];
 
 export default function FeaturedVideos() {
   return (
-    <section className="py-20 bg-black">
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <div className="flex items-end justify-between mb-10">
-           <div>
-             <h2 className="text-3xl md:text-5xl font-black text-white mb-2 tracking-tight">
-               TRENDING ON NETWORK
-             </h2>
-             <p className="text-gray-400 text-sm md:text-base">
-               Top performing channels and content live now.
-             </p>
-           </div>
-           <a 
-             href="https://www.youtube.com/@AforevoStage" 
-             target="_blank"
-             className="hidden md:block text-mbi-red font-bold uppercase text-xs tracking-widest hover:text-white transition-colors"
-           >
-             View All Channels
-           </a>
+    <section className="py-12 bg-black border-y border-white/5 relative z-20">
+      <div className="container mx-auto px-4 mb-8 flex justify-between items-end">
+        <div>
+          <span className="text-mbi-red font-bold uppercase tracking-widest text-xs block mb-2">Trending Now</span>
+          <h2 className="text-3xl font-black text-white tracking-tight">TOP PICKS FOR YOU</h2>
         </div>
-        
-        {/* Netflix-Style Horizontal Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {FEATURED_CHANNELS.map((item) => (
-            <a 
-              key={item.id} 
-              href={item.link} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="group cursor-pointer relative block"
-            >
-              {/* Thumbnail Container */}
-              <div className="relative aspect-video rounded-lg overflow-hidden border border-white/10 mb-3 bg-neutral-900 shadow-xl transition-all duration-500 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-white/30">
-                <Image 
-                  src={item.img} 
-                  alt={item.title} 
-                  fill 
-                  className="object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-                />
-                
-                {/* Play Overlay */}
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors flex items-center justify-center">
-                   <div className="w-12 h-12 rounded-full bg-mbi-red/90 flex items-center justify-center backdrop-blur-md shadow-lg transform scale-90 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
-                      <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                   </div>
-                </div>
+        <button className="hidden md:flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white transition-colors uppercase tracking-wider">
+          View All Library <Play className="w-3 h-3" />
+        </button>
+      </div>
 
-                {/* Badge */}
-                <div className="absolute top-2 left-2 bg-black/80 backdrop-blur-md px-2 py-0.5 rounded text-[10px] font-bold text-white border border-white/10 uppercase tracking-wider">
-                  {item.brand}
+      {/* INFINITY RAIL (Horizontal Scroll) */}
+      <div className="flex overflow-x-auto pb-8 px-4 gap-4 snap-x snap-mandatory scrollbar-hide -mx-4 md:mx-0">
+        {[...TRENDING_VIDEOS, ...TRENDING_VIDEOS].map((video, i) => (
+          <div 
+            key={i} 
+            className="snap-start shrink-0 w-[280px] md:w-[350px] group cursor-pointer relative"
+          >
+            {/* Thumbnail */}
+            <div className="aspect-video bg-neutral-800 rounded-lg overflow-hidden relative mb-3 border border-white/10 group-hover:border-mbi-red transition-colors">
+              <img src={video.img} alt={video.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
+              
+              {/* Play Button Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="w-12 h-12 bg-mbi-red rounded-full flex items-center justify-center shadow-lg scale-0 group-hover:scale-100 transition-transform">
+                  <Play className="w-5 h-5 text-white fill-current" />
                 </div>
               </div>
-              
-              {/* Meta Info */}
-              <h3 className="text-lg font-bold text-white group-hover:text-mbi-red transition-colors truncate">
-                {item.title}
-              </h3>
-              <p className="text-xs text-gray-500 font-mono mt-0.5">{item.subtitle}</p>
-            </a>
-          ))}
-        </div>
+
+              {/* Duration Badge */}
+              <div className="absolute bottom-2 right-2 bg-black/80 px-2 py-0.5 rounded text-[10px] font-bold text-white">
+                {video.duration}
+              </div>
+            </div>
+
+            {/* Meta */}
+            <h3 className="text-white font-bold leading-tight mb-1 group-hover:text-mbi-red transition-colors line-clamp-1">
+              {video.title}
+            </h3>
+            <div className="flex items-center gap-2 text-xs text-gray-500 font-mono">
+              <span>{video.views} Views</span>
+              <span>•</span>
+              <span>2 hours ago</span>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
