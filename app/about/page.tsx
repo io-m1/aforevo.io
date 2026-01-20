@@ -17,7 +17,8 @@ export default function AboutPage() {
       <section className="container mx-auto px-4 mb-32">
         <div className="max-w-5xl">
           <span className="text-mbi-gold font-mono text-xs uppercase tracking-widest mb-4 block">
-            Est. {MANIFESTO.founded} // {MANIFESTO.hq}
+            {/* FIXED: Wrapped the double slash in quotes so it renders as text */}
+            Est. {MANIFESTO.founded} {'//'} {MANIFESTO.hq}
           </span>
           <h1 className="text-4xl md:text-6xl font-black leading-tight mb-12">
             &quot;{MANIFESTO.mission}&quot;
