@@ -1,9 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { Play } from 'lucide-react';
 
 const TRENDING_VIDEOS = [
-  // MOCK DATA - Ideally this comes from YouTube API
   { title: "Lagos Heist: Official Trailer", views: "2.4M", duration: "2:30", img: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800" },
   { title: "Yorubahood: The Wedding Party", views: "1.8M", duration: "1:45", img: "https://images.unsplash.com/photo-1517604931442-71053e3e2c28?q=80&w=800" },
   { title: "Vybz FM: Burna Boy Interview", views: "800K", duration: "15:00", img: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=800" },
@@ -29,14 +29,21 @@ export default function FeaturedVideos() {
 
       {/* INFINITY RAIL (Horizontal Scroll) */}
       <div className="flex overflow-x-auto pb-8 px-4 gap-4 snap-x snap-mandatory scrollbar-hide -mx-4 md:mx-0">
+        {/* Double array for infinite scroll illusion */}
         {[...TRENDING_VIDEOS, ...TRENDING_VIDEOS].map((video, i) => (
           <div 
             key={i} 
             className="snap-start shrink-0 w-[280px] md:w-[350px] group cursor-pointer relative"
           >
-            {/* Thumbnail */}
+            {/* Thumbnail - Now using Next/Image */}
             <div className="aspect-video bg-neutral-800 rounded-lg overflow-hidden relative mb-3 border border-white/10 group-hover:border-mbi-red transition-colors">
-              <img src={video.img} alt={video.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <Image 
+                src={video.img} 
+                alt={video.title} 
+                fill 
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
               
               {/* Play Button Overlay */}
