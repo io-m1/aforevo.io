@@ -1,10 +1,17 @@
 import Image from 'next/image';
 
 const FEATURED_VIDEOS = [
-  { id: 1, title: "Lagos Heist - Official Trailer", views: "1.2M Views", brand: "Aforevo", img: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800&auto=format&fit=crop" },
-  { id: 2, title: "Burna Boy - Live at Vybz FM", views: "850K Views", brand: "Vybz FM", img: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=800&auto=format&fit=crop" },
-  { id: 3, title: "Yorubahood: The Wedding Party", views: "2.4M Views", brand: "Yorubahood", img: "https://images.unsplash.com/photo-1517604931442-7105376f7e04?q=80&w=800&auto=format&fit=crop" },
-  { id: 4, title: "Tech Talk: DRM in Africa", views: "120K Views", brand: "MBI Tech", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop" },
+  { 
+    id: 1, 
+    title: "Don't Skip This New TRENDING MOVIE Of ADAKIRIKIRI", 
+    views: "Trending Now", 
+    brand: "Aforevo Cinema", 
+    img: "https://img.youtube.com/vi/baoyWPnUpYU/maxresdefault.jpg", // Uses real YouTube thumbnail
+    link: "https://www.youtube.com/watch?v=baoyWPnUpYU"
+  },
+  { id: 2, title: "Burna Boy - Live at Vybz FM", views: "850K Views", brand: "Vybz FM", img: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=800&auto=format&fit=crop", link: "https://vybzfm.com" },
+  { id: 3, title: "Yorubahood: The Wedding Party", views: "2.4M Views", brand: "Yorubahood", img: "https://images.unsplash.com/photo-1517604931442-7105376f7e04?q=80&w=800&auto=format&fit=crop", link: "#" },
+  { id: 4, title: "Tech Talk: DRM in Africa", views: "120K Views", brand: "MBI Tech", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop", link: "#" },
 ];
 
 export default function FeaturedVideos() {
@@ -23,7 +30,7 @@ export default function FeaturedVideos() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {FEATURED_VIDEOS.map((video) => (
-            <div key={video.id} className="group cursor-pointer">
+            <a key={video.id} href={video.link} target="_blank" rel="noopener noreferrer" className="group cursor-pointer">
               {/* Thumbnail Container */}
               <div className="relative aspect-video rounded-xl overflow-hidden border border-white/10 mb-4">
                 <Image 
@@ -45,8 +52,8 @@ export default function FeaturedVideos() {
               <h3 className="text-lg font-bold text-white group-hover:text-mbi-red transition-colors line-clamp-2">
                 {video.title}
               </h3>
-              <p className="text-sm text-gray-500 mt-1">{video.views} • 2 Days Ago</p>
-            </div>
+              <p className="text-sm text-gray-500 mt-1">{video.views}</p>
+            </a>
           ))}
         </div>
       </div>
