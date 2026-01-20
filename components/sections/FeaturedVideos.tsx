@@ -1,76 +1,78 @@
-'use client';
-
-import Image from 'next/image';
 import { Play } from 'lucide-react';
 
-const TRENDING_VIDEOS = [
-  { title: "Lagos Heist: Official Trailer", views: "2.4M", duration: "2:30", img: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=800" },
-  { title: "Yorubahood: The Wedding Party", views: "1.8M", duration: "1:45", img: "https://images.unsplash.com/photo-1517604931442-71053e3e2c28?q=80&w=800" },
-  { title: "Vybz FM: Burna Boy Interview", views: "800K", duration: "15:00", img: "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=800" },
-  { title: "Aforevo Music: Top 10 Hits", views: "4.5M", duration: "8:20", img: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=800" },
-  { title: "Behind The Scenes: Nollywood", views: "500K", duration: "5:12", img: "https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?q=80&w=800" },
-  { title: "Comedy Skits Compilation", views: "3.2M", duration: "10:00", img: "https://images.unsplash.com/photo-1527224857830-43a7acc85260?q=80&w=800" },
-  { title: "Action Movie: The Cartel", views: "1.2M", duration: "1:55", img: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800" },
-  { title: "Documentary: Rise of Afrobeats", views: "900K", duration: "45:00", img: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=800" }
+const FEATURED = [
+  {
+    title: "ADAKIRIKIRI",
+    category: "BLOCKBUSTER PREMIERE",
+    views: "1.2M Views",
+    image: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?q=80&w=800"
+  },
+  {
+    title: "MARK ANGEL: THE INTERVIEW",
+    category: "EXCLUSIVE",
+    views: "850K Views",
+    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=800"
+  },
+  {
+    title: "LAGOS VIBES 2026",
+    category: "DOCUMENTARY",
+    views: "450K Views",
+    image: "https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=800"
+  }
 ];
 
 export default function FeaturedVideos() {
   return (
-    <section className="py-12 bg-black border-y border-white/5 relative z-20">
-      <div className="container mx-auto px-4 mb-8 flex justify-between items-end">
-        <div>
-          <span className="text-mbi-red font-bold uppercase tracking-widest text-xs block mb-2">Trending Now</span>
-          <h2 className="text-3xl font-black text-white tracking-tight">TOP PICKS FOR YOU</h2>
+    <section className="py-24 bg-neutral-950">
+      <div className="container mx-auto px-4">
+        {/* HEADER */}
+        <div className="flex justify-between items-end mb-12">
+          <div>
+            <span className="text-mbi-red font-bold uppercase tracking-widest text-xs">Trending Now</span>
+            <h2 className="text-4xl font-black text-white mt-2 uppercase">Top Picks For You</h2>
+          </div>
+          <button className="hidden md:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors">
+            View Full Library <ArrowRightIcon />
+          </button>
         </div>
-        <button className="hidden md:flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white transition-colors uppercase tracking-wider">
-          View All Library <Play className="w-3 h-3" />
-        </button>
-      </div>
 
-      {/* INFINITY RAIL (Horizontal Scroll) */}
-      <div className="flex overflow-x-auto pb-8 px-4 gap-4 snap-x snap-mandatory scrollbar-hide -mx-4 md:mx-0">
-        {/* Double array for infinite scroll illusion */}
-        {[...TRENDING_VIDEOS, ...TRENDING_VIDEOS].map((video, i) => (
-          <div 
-            key={i} 
-            className="snap-start shrink-0 w-[280px] md:w-[350px] group cursor-pointer relative"
-          >
-            {/* Thumbnail - Now using Next/Image */}
-            <div className="aspect-video bg-neutral-800 rounded-lg overflow-hidden relative mb-3 border border-white/10 group-hover:border-mbi-red transition-colors">
-              <Image 
-                src={video.img} 
-                alt={video.title} 
-                fill 
-                className="object-cover group-hover:scale-105 transition-transform duration-700"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors" />
-              
-              {/* Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="w-12 h-12 bg-mbi-red rounded-full flex items-center justify-center shadow-lg scale-0 group-hover:scale-100 transition-transform">
-                  <Play className="w-5 h-5 text-white fill-current" />
+        {/* GRID (No Duplicates) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {FEATURED.map((video, i) => (
+            <div key={i} className="group cursor-pointer">
+              <div className="relative aspect-video bg-neutral-900 mb-4 overflow-hidden border border-white/5 group-hover:border-mbi-gold/50 transition-all">
+                {/* Image Placeholder */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  style={{ backgroundImage: `url(${video.image})` }}
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all" />
+                
+                {/* Play Button */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="w-16 h-16 bg-mbi-red rounded-full flex items-center justify-center shadow-lg transform scale-50 group-hover:scale-100 transition-transform">
+                    <Play className="w-6 h-6 text-white fill-current" />
+                  </div>
+                </div>
+                
+                {/* Badge */}
+                <div className="absolute top-4 left-4 px-2 py-1 bg-black/80 text-[10px] font-bold uppercase tracking-widest text-white">
+                  {video.category}
                 </div>
               </div>
-
-              {/* Duration Badge */}
-              <div className="absolute bottom-2 right-2 bg-black/80 px-2 py-0.5 rounded text-[10px] font-bold text-white">
-                {video.duration}
-              </div>
+              
+              <h3 className="text-xl font-black text-white mb-1 group-hover:text-mbi-gold transition-colors">{video.title}</h3>
+              <p className="text-sm font-mono text-gray-500">{video.views} • 2 Days Ago</p>
             </div>
-
-            {/* Meta */}
-            <h3 className="text-white font-bold leading-tight mb-1 group-hover:text-mbi-red transition-colors line-clamp-1">
-              {video.title}
-            </h3>
-            <div className="flex items-center gap-2 text-xs text-gray-500 font-mono">
-              <span>{video.views} Views</span>
-              <span>•</span>
-              <span>2 hours ago</span>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
+}
+
+function ArrowRightIcon() {
+  return (
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+  )
 }
