@@ -10,7 +10,7 @@ import ServicesGrid from '@/components/sections/ServicesGrid';
 import MediaRow from '@/components/sections/MediaRow';
 import PulseNetwork from '@/components/sections/PulseNetwork';
 import FeaturedVideos from '@/components/sections/FeaturedVideos';
-import NetworkGrid from '@/components/sections/NetworkGrid'; // New Component
+import NetworkGrid from '@/components/sections/NetworkGrid';
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = await getHomePageContent();
@@ -37,9 +37,20 @@ export default async function HomePage() {
 
   const aggregatedStats = aggregateMetrics(liveChannels);
 
+  // TRANSFORM WP POSTS TO PULSE ITEMS
+  // We adapt the news structure to fit the "Pulse" visual feed
+  const newsItems = wpPosts.map((post: any) => ({
+    id: `wp-${post.id}`,
+    category: "News Flash",
+    message: post.title, // Use title as the main message
+    timestamp: "Just Now",
+    location: "Global Wire",
+    stats: "Read More"
+  }));
+
   const mergedPulse = {
     ...staticPulse,
-    items: [ ...wpPosts, ...staticPulse.items ].slice(0, 8)
+    items: [ ...newsItems, ...staticPulse.items ].slice(0, 8)
   };
 
   return (
@@ -48,9 +59,8 @@ export default async function HomePage() {
       <DominanceTicker />
       <StatsStrip stats={content.metrics.items} />
       
-      {/* Media & Network Layer */}
       <FeaturedVideos />
-      <NetworkGrid /> {/* The "High Flyers" Section */}
+      <NetworkGrid />
 
       <YouTubeGrid heading={content.youtube.heading} channels={liveChannels} />
       <PulseNetwork data={mergedPulse} liveStats={aggregatedStats} />
