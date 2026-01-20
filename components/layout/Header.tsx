@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 import Logo from '@/components/ui/Logo';
+import { ThemeToggle } from '@/components/ui/ThemeToggle'; // IMPORT TOGGLE
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -19,7 +20,6 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
@@ -29,7 +29,9 @@ export default function Header() {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-        scrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10 py-4' : 'bg-transparent py-6'
+        scrolled 
+          ? 'bg-white/80 dark:bg-black/80 backdrop-blur-md border-b border-black/10 dark:border-white/10 py-4' 
+          : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
@@ -40,7 +42,7 @@ export default function Header() {
         </Link>
 
         {/* 2. DESKTOP NAV */}
-        <nav className="hidden md:flex items-center gap-8 bg-black/50 px-8 py-3 rounded-full border border-white/5 backdrop-blur-sm">
+        <nav className="hidden md:flex items-center gap-8 bg-white/50 dark:bg-black/50 px-8 py-3 rounded-full border border-black/5 dark:border-white/5 backdrop-blur-sm">
           {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -48,7 +50,9 @@ export default function Header() {
                 key={link.name} 
                 href={link.href}
                 className={`text-sm font-bold uppercase tracking-widest transition-colors ${
-                  isActive ? 'text-mbi-red' : 'text-gray-400 hover:text-white'
+                  isActive 
+                    ? 'text-mbi-red' 
+                    : 'text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white'
                 }`}
               >
                 {link.name}
@@ -57,37 +61,41 @@ export default function Header() {
           })}
         </nav>
 
-        {/* 3. CTA */}
+        {/* 3. ACTIONS (Partner + Toggle) */}
         <div className="hidden md:flex items-center gap-4">
+          <ThemeToggle /> {/* THE TOGGLE */}
           <Link 
             href="/brands" 
-            className="px-6 py-2.5 bg-white text-black text-xs font-black uppercase tracking-widest hover:bg-mbi-gold transition-colors rounded-sm"
+            className="px-6 py-2.5 bg-black dark:bg-white text-white dark:text-black text-xs font-black uppercase tracking-widest hover:bg-mbi-red dark:hover:bg-mbi-gold transition-colors rounded-sm"
           >
             Partner
           </Link>
         </div>
 
         {/* 4. MOBILE TOGGLE */}
-        <button 
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden relative z-50 text-white p-2"
-        >
-          {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
-        </button>
+        <div className="flex items-center gap-4 md:hidden relative z-50">
+          <ThemeToggle />
+          <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-black dark:text-white p-2"
+          >
+            {isOpen ? <X className="w-8 h-8" /> : <Menu className="w-8 h-8" />}
+          </button>
+        </div>
 
         {/* 5. MOBILE MENU OVERLAY */}
         {isOpen && (
           <motion.div 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="fixed inset-0 bg-black z-40 flex flex-col items-center justify-center gap-8 md:hidden"
+            className="fixed inset-0 bg-white dark:bg-black z-40 flex flex-col items-center justify-center gap-8 md:hidden"
           >
             {NAV_LINKS.map((link) => (
               <Link 
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-3xl font-black uppercase tracking-tighter text-white hover:text-mbi-red"
+                className="text-3xl font-black uppercase tracking-tighter text-black dark:text-white hover:text-mbi-red"
               >
                 {link.name}
               </Link>
