@@ -36,7 +36,7 @@ export default function Header() {
         
         {/* 1. BRAND */}
         <Link href="/" className="relative z-50 hover:opacity-80 transition-opacity">
-          <Logo className="h-8 md:h-10" />
+          <Logo className="text-2xl md:text-3xl" />
         </Link>
 
         {/* 2. DESKTOP NAV */}
