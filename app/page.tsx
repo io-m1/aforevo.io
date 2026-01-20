@@ -11,6 +11,7 @@ import MediaRow from '@/components/sections/MediaRow';
 import PulseNetwork from '@/components/sections/PulseNetwork';
 import FeaturedVideos from '@/components/sections/FeaturedVideos';
 import NetworkGrid from '@/components/sections/NetworkGrid';
+import TitanReveal from '@/components/sections/TitanReveal'; // NEW IMPORT
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = await getHomePageContent();
@@ -37,12 +38,11 @@ export default async function HomePage() {
 
   const aggregatedStats = aggregateMetrics(liveChannels);
 
-  // TRANSFORM WP POSTS TO PULSE ITEMS
-  // We adapt the news structure to fit the "Pulse" visual feed
+  // Transform WP data
   const newsItems = wpPosts.map((post: any) => ({
     id: `wp-${post.id}`,
     category: "News Flash",
-    message: post.title, // Use title as the main message
+    message: post.title,
     timestamp: "Just Now",
     location: "Global Wire",
     stats: "Read More"
@@ -61,6 +61,9 @@ export default async function HomePage() {
       
       <FeaturedVideos />
       <NetworkGrid />
+
+      {/* THE TITAN REVEAL (Culture Layer) */}
+      <TitanReveal />
 
       <YouTubeGrid heading={content.youtube.heading} channels={liveChannels} />
       <PulseNetwork data={mergedPulse} liveStats={aggregatedStats} />
