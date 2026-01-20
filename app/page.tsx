@@ -1,13 +1,16 @@
 import { Metadata } from 'next';
 import { getHomePageContent, getMediaContent, getPulseContent } from '@/lib/content';
 import { getLiveYouTubeMetrics } from '@/lib/youtube';
+import { getPulseFromWordPress } from '@/lib/wordpress';
 import Hero from '@/components/sections/Hero';
+import DominanceTicker from '@/components/sections/DominanceTicker';
 import StatsStrip from '@/components/sections/StatsStrip';
 import YouTubeGrid from '@/components/sections/YouTubeGrid';
 import ServicesGrid from '@/components/sections/ServicesGrid';
 import MediaRow from '@/components/sections/MediaRow';
 import PulseNetwork from '@/components/sections/PulseNetwork';
 import FeaturedVideos from '@/components/sections/FeaturedVideos';
+import NetworkGrid from '@/components/sections/NetworkGrid'; // New Component
 
 export async function generateMetadata(): Promise<Metadata> {
   const content = await getHomePageContent();
@@ -18,47 +21,44 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-// Helper to sum up metrics (Mock or Live logic)
 function aggregateMetrics(channels: any[]) {
-  // If we had real data we would sum it here.
-  return {
-    totalSubs: "10.4M", 
-    totalViews: "500M+"
-  };
+  return { totalSubs: "10.4M", totalViews: "500M+" };
 }
 
 export default async function HomePage() {
   const content = await getHomePageContent();
   const media = await getMediaContent();
-  const pulse = await getPulseContent();
+  const staticPulse = await getPulseContent();
   
-  // Secure Server-Side Fetch
-  const liveChannels = await getLiveYouTubeMetrics();
+  const [liveChannels, wpPosts] = await Promise.all([
+    getLiveYouTubeMetrics(),
+    getPulseFromWordPress()
+  ]);
+
   const aggregatedStats = aggregateMetrics(liveChannels);
+
+  const mergedPulse = {
+    ...staticPulse,
+    items: [ ...wpPosts, ...staticPulse.items ].slice(0, 8)
+  };
 
   return (
     <main className="flex flex-col min-h-screen bg-black text-white">
-      {/* 1. Cinematic Video Hero (Movement) */}
       <Hero data={content.hero} />
-      
-      {/* 2. Animated Stats (Dopamine) */}
+      <DominanceTicker />
       <StatsStrip stats={content.metrics.items} />
       
-      {/* 3. Featured Video Showcase (Media Proof) */}
+      {/* Media & Network Layer */}
       <FeaturedVideos />
+      <NetworkGrid /> {/* The "High Flyers" Section */}
 
-      {/* 4. Detailed Youtube Grid (Dominance) */}
       <YouTubeGrid heading={content.youtube.heading} channels={liveChannels} />
+      <PulseNetwork data={mergedPulse} liveStats={aggregatedStats} />
       
-      {/* 5. Pulse Network (Liveness) */}
-      <PulseNetwork data={pulse} liveStats={aggregatedStats} />
-
-      {/* 6. Media Sliders (Depth) */}
       <div className="space-y-0">
         <MediaRow heading={media.movies.heading} items={media.movies.items} type="movie" />
       </div>
 
-      {/* 7. Ecosystem (Business Services) */}
       <ServicesGrid heading="Our Ecosystem" items={content.services.items} />
     </main>
   );
