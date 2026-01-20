@@ -68,7 +68,8 @@ export default function CareersPage() {
       {/* 3. CULTURE CTA */}
       <div className="container mx-auto px-4 mt-24">
         <div className="p-12 border border-white/10 bg-gradient-to-br from-neutral-900 to-black text-center">
-          <h2 className="text-3xl font-black text-white mb-4">DON'T SEE YOUR ROLE?</h2>
+          {/* FIXED: Escaped apostrophe in DON'T */}
+          <h2 className="text-3xl font-black text-white mb-4">DON&apos;T SEE YOUR ROLE?</h2>
           <p className="text-gray-400 mb-8">
             We are always scouting for elite talent. If you believe you belong here, force us to pay attention.
           </p>
