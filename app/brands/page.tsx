@@ -1,92 +1,99 @@
-'use client';
+import { Metadata } from 'next';
+import { NETWORK_CHANNELS } from '@/content/network';
+import { Users, Play, Radio, Film, CheckCircle2 } from 'lucide-react';
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { brandsData } from '@/content/brands';
+export const metadata: Metadata = {
+  title: 'Network Brands | Murphy Ben International',
+  description: 'Explore the 50+ channels and brands comprising Africa\'s largest digital media network.',
+};
 
 export default function BrandsPage() {
   return (
     <main className="min-h-screen bg-black text-white pt-24 pb-20">
-      <div className="container mx-auto px-4">
-        
-        {/* HEADER */}
-        <div className="text-center max-w-4xl mx-auto mb-20">
-          <motion.span 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-mbi-gold font-bold uppercase tracking-[0.3em] text-sm block mb-4"
-          >
-            The MBI Ecosystem
-          </motion.span>
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-fluid-h1 font-black mb-6"
-          >
-            DOMINATING EVERY SCREEN <br /> AND FREQUENCY
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-gray-400"
-          >
-            From terrestrial radio to digital streaming, our portfolio covers the entire entertainment value chain.
-          </motion.p>
+      
+      {/* 1. HEADER: The Scale Claim */}
+      <div className="container mx-auto px-4 mb-16">
+        <div className="max-w-4xl">
+          <div className="flex items-center gap-2 mb-4 text-mbi-red font-bold uppercase tracking-[0.3em] text-xs">
+            <Radio className="w-4 h-4" />
+            The Frequency
+          </div>
+          <h1 className="text-5xl md:text-7xl font-black tracking-tighter mb-8">
+            50+ CHANNELS. <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-mbi-red to-mbi-gold">
+              ONE DOMINANT SIGNAL.
+            </span>
+          </h1>
+          
+          {/* Stats Bar */}
+          <div className="flex flex-wrap gap-8 border-y border-white/10 py-6">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl font-black text-white">10.4M+</span>
+              <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Total Subs</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-3xl font-black text-white">500M+</span>
+              <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Monthly Views</span>
+            </div>
+            <div className="flex items-center gap-3">
+              <span className="text-3xl font-black text-white">15</span>
+              <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Languages</span>
+            </div>
+          </div>
         </div>
+      </div>
 
-        {/* BRANDS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {brandsData.map((brand, i) => (
-            <motion.div
-              key={brand.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              className="group relative h-[450px] rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-colors"
+      {/* 2. THE GRID */}
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {NETWORK_CHANNELS.map((channel, i) => (
+            <div 
+              key={i}
+              className={`group relative p-6 border bg-neutral-900/50 transition-all hover:-translate-y-1 ${channel.isFlagship ? 'border-mbi-red/30 bg-mbi-red/5' : 'border-white/10 hover:border-white/30'}`}
             >
-              {/* Background Image */}
-              <Image 
-                src={brand.image} 
-                alt={brand.name}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-40 group-hover:opacity-20"
-              />
-              
-              {/* Gradient Overlay */}
-              <div className={`absolute inset-0 bg-gradient-to-t ${brand.color} opacity-20 group-hover:opacity-40 transition-opacity mix-blend-overlay`} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
-
-              {/* Content */}
-              <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-lg bg-white/10 backdrop-blur border border-white/20 flex items-center justify-center mb-6 group-hover:bg-white group-hover:text-black transition-all">
-                  <brand.icon className="w-6 h-6" />
-                </div>
-
-                <h2 className="text-3xl font-black mb-2">{brand.name}</h2>
-                <p className="text-mbi-gold text-sm font-bold uppercase tracking-wider mb-4">{brand.tagline}</p>
-                <p className="text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3 group-hover:line-clamp-none transition-all">
-                  {brand.description}
-                </p>
-
-                {/* Stats & CTA */}
-                <div className="flex items-center justify-between border-t border-white/10 pt-6">
-                  <div>
-                    <div className="text-2xl font-black text-white">{brand.stats.value}</div>
-                    <div className="text-[10px] uppercase text-gray-500 font-bold">{brand.stats.label}</div>
-                  </div>
-                  <button className="w-10 h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </div>
+              <div className="flex justify-between items-start mb-4">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 border border-white/10 px-2 py-1 rounded">
+                  {channel.category}
+                </span>
+                {channel.isFlagship && (
+                  <CheckCircle2 className="w-5 h-5 text-mbi-gold" />
+                )}
               </div>
-            </motion.div>
+              
+              <h3 className="text-xl font-black text-white mb-1 truncate">{channel.name}</h3>
+              <p className="text-sm font-mono text-mbi-red mb-4">{channel.handle}</p>
+              
+              <p className="text-gray-400 text-sm leading-relaxed mb-6 h-10 line-clamp-2">
+                {channel.description}
+              </p>
+
+              <div className="flex items-center justify-between border-t border-white/5 pt-4">
+                <div className="flex items-center gap-2 text-white font-bold">
+                  <Users className="w-4 h-4 text-gray-500" />
+                  {channel.subscribers}
+                </div>
+                <button className="p-2 bg-white text-black rounded-full opacity-0 group-hover:opacity-100 transition-opacity transform scale-75 group-hover:scale-100">
+                  <Play className="w-4 h-4 fill-current" />
+                </button>
+              </div>
+            </div>
           ))}
         </div>
-
       </div>
+
+      {/* 3. CTA */}
+      <div className="container mx-auto px-4 mt-24">
+        <div className="p-12 border border-white/10 bg-gradient-to-r from-neutral-900 to-black rounded-2xl text-center">
+          <h2 className="text-3xl font-black text-white mb-6 uppercase">Own a Channel? Join the Empire.</h2>
+          <p className="text-gray-400 max-w-xl mx-auto mb-8">
+            We provide the rights management, monetization tools, and global distribution network to 10x your growth.
+          </p>
+          <button className="px-8 py-4 bg-white text-black font-black uppercase tracking-widest hover:bg-mbi-gold transition-colors">
+            Apply for Partnership
+          </button>
+        </div>
+      </div>
+
     </main>
   );
 }
