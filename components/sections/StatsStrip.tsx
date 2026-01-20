@@ -1,65 +1,51 @@
-'use client';
+import { Users, Play, Radio, Globe } from 'lucide-react';
 
-import { useEffect, useState } from 'react';
-import { StatItem } from '@/types/cms';
+const STATS = [
+  { 
+    label: "TOTAL SUBSCRIBERS", 
+    value: "10.4M+", 
+    icon: <Users className="w-5 h-5 text-mbi-red" /> 
+  },
+  { 
+    label: "MONTHLY VIEWS", 
+    value: "550M+", 
+    icon: <Play className="w-5 h-5 text-mbi-red" /> 
+  },
+  { 
+    label: "ACTIVE CHANNELS", 
+    value: "50+", 
+    icon: <Radio className="w-5 h-5 text-mbi-red" /> 
+  },
+  { 
+    label: "GLOBAL REACH", 
+    value: "150+", 
+    suffix: "Countries",
+    icon: <Globe className="w-5 h-5 text-mbi-red" /> 
+  },
+];
 
-interface StatsStripProps {
-  stats: StatItem[];
-}
-
-// Simple easing function for the counter
-const easeOutQuad = (t: number) => t * (2 - t);
-
-const Counter = ({ end, duration = 2000, suffix = '' }: { end: string, duration?: number, suffix?: string }) => {
-  const [count, setCount] = useState(0);
-  const target = parseInt(end.replace(/[^0-9]/g, '')); // Extract number
-  const isK = end.includes('K');
-  const isM = end.includes('M');
-  const isB = end.includes('B');
-
-  useEffect(() => {
-    let startTimestamp: number | null = null;
-    const step = (timestamp: number) => {
-      if (!startTimestamp) startTimestamp = timestamp;
-      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-      setCount(Math.floor(easeOutQuad(progress) * target));
-      if (progress < 1) {
-        window.requestAnimationFrame(step);
-      }
-    };
-    window.requestAnimationFrame(step);
-  }, [target, duration]);
-
-  // Reconstruct string
-  let display = count.toString();
-  if (isM) display += 'M';
-  else if (isK) display += 'K';
-  else if (isB) display += 'B';
-  
-  return <span>{display}{end.includes('+') ? '+' : ''}{suffix}</span>;
-};
-
-export default function StatsStrip({ stats }: StatsStripProps) {
-  // Use Client-Side mounting check to avoid hydration mismatch
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
+export default function StatsStrip() {
   return (
-    <div className="w-full bg-neutral-900 border-y border-neutral-800 relative z-20">
+    <section className="border-b border-white/10 bg-neutral-900/50 backdrop-blur-sm z-30 relative">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-neutral-800">
-          {stats.map((stat, index) => (
-            <div key={index} className="py-10 md:py-16 px-4 flex flex-col items-center text-center hover:bg-neutral-800/50 transition-colors group cursor-default">
-              <span className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-3 group-hover:text-mbi-red transition-colors">
-                {mounted ? <Counter end={stat.value} suffix={stat.suffix} /> : stat.value}
-              </span>
-              <span className="text-xs md:text-sm font-bold text-gray-500 uppercase tracking-widest group-hover:text-white transition-colors">
-                {stat.label}
-              </span>
+        <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+          {STATS.map((stat, i) => (
+            <div key={i} className="flex items-center justify-center py-6 gap-4 group hover:bg-white/5 transition-colors cursor-default">
+              <div className="p-3 bg-white/5 rounded-full group-hover:scale-110 transition-transform">
+                {stat.icon}
+              </div>
+              <div className="flex flex-col">
+                <span className="text-2xl md:text-3xl font-black text-white leading-none">
+                  {stat.value}
+                </span>
+                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 group-hover:text-mbi-gold transition-colors mt-1">
+                  {stat.label}
+                </span>
+              </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

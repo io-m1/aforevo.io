@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Hero from '@/components/sections/Hero';
 import DominanceTicker from '@/components/sections/DominanceTicker';
+import StatsStrip from '@/components/sections/StatsStrip';
 import FeaturedVideos from '@/components/sections/FeaturedVideos';
 import NetworkGrid from '@/components/sections/NetworkGrid';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
@@ -15,16 +16,19 @@ export default function HomePage() {
   return (
     <main className="flex flex-col min-h-screen bg-black text-white antialiased">
       
-      {/* 1. HERO: The Command Center (Self-Contained) */}
+      {/* 1. HERO: The Command Center */}
       <Hero />
       
-      {/* 2. PROOF: Ticking Metrics */}
+      {/* 2. RANK DISPLAY: The Stats Strip (Restored & Attached) */}
+      <StatsStrip />
+
+      {/* 3. PROOF: Ticking Metrics */}
       <DominanceTicker />
       
-      {/* 3. MEDIA: Top Picks (Self-Contained) */}
+      {/* 4. MEDIA: Top Picks */}
       <FeaturedVideos />
       
-      {/* 4. INFRASTRUCTURE: Quick Service Preview */}
+      {/* 5. INFRASTRUCTURE: Quick Service Preview */}
       <section className="bg-neutral-900/50 py-24 border-y border-white/5">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
@@ -48,7 +52,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. THE ARMY: Network Grid (Self-Contained) */}
+      {/* 6. THE ARMY: Network Grid */}
       <NetworkGrid />
 
     </main>
