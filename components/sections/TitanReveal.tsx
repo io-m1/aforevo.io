@@ -114,9 +114,10 @@ export default function TitanReveal() {
                   {MOCK_TITAN.role}
                 </p>
                 
+                {/* FIXED: Using curly braces for strict React string handling */}
                 <div className="glass-panel inline-block px-8 py-6 rounded-xl max-w-2xl border-mbi-gold/20">
                   <p className="text-gray-300 italic text-lg">
-                    &quot;{MOCK_TITAN.achievement}&quot;
+                    {"\""}{MOCK_TITAN.achievement}{"\""}
                   </p>
                 </div>
               </motion.div>
