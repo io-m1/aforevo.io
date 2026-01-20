@@ -25,7 +25,7 @@ export default function ServicesPage() {
             </span>
           </h1>
           <p className="text-xl text-gray-400 max-w-2xl leading-relaxed border-l-4 border-mbi-red pl-6">
-            We don't just create content; we own the rails it runs on. From satellite uplinks to algorithmic monetization.
+            We don&apos;t just create content; we own the rails it runs on. From satellite uplinks to algorithmic monetization.
           </p>
         </div>
 
@@ -36,7 +36,6 @@ export default function ServicesPage() {
               key={service.id}
               className="group relative p-10 border border-white/10 bg-neutral-900/50 hover:bg-neutral-900 transition-all overflow-hidden"
             >
-              {/* Hover Glow */}
               <div className="absolute inset-0 bg-gradient-to-r from-mbi-red/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               
               <div className="relative z-10">

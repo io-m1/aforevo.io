@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Image from 'next/image';
 import { MANIFESTO } from '@/content/manifesto';
 import { LEADERSHIP } from '@/content/leadership';
-import { Quote, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'About | Murphy Ben International',
@@ -20,7 +20,7 @@ export default function AboutPage() {
             Est. {MANIFESTO.founded} // {MANIFESTO.hq}
           </span>
           <h1 className="text-4xl md:text-6xl font-black leading-tight mb-12">
-            "{MANIFESTO.mission}"
+            &quot;{MANIFESTO.mission}&quot;
           </h1>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-white/10 pt-12">
